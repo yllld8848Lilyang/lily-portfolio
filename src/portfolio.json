@@ -162,10 +162,10 @@
             },
             {
               "type": "video",
-              "src": "/assets/xingyao-robot-dog.mp4",
-              "poster": "/assets/xingyao-robot-dog-poster.jpg",
-              "caption": "Brand content · robot dog visit",
-              "captionZh": "品牌内容 · 探秘机器狗"
+              "src": "/assets/xingyao-window-breaker.mp4",
+              "poster": "/assets/xingyao-window-breaker-poster.jpg",
+              "caption": "Product seeding video · lipstick-size window breaker",
+              "captionZh": "产品种草视频 · 口红式破窗器"
             },
             {
               "type": "image",
