@@ -26,7 +26,7 @@ Create a bilingual, recruiter-first portfolio that shows the evidence behind Lil
 
 - Do not publish personal contact details or internal company material without Lily's confirmation.
 - Treat CV metrics as claims requiring source, period, scope, and contribution checks.
-- Label synthetic examples and never present them as real users or outcomes.
+- Label anonymized real feedback clearly; distinguish it from simulated publishing and prototype interactions.
 - Do not imply that a concept PRD is a running prototype.
 - Keep “AI Marketing Builder” as the agreed portfolio positioning; describe product-operations roles as supporting experience rather than replacing that positioning.
 

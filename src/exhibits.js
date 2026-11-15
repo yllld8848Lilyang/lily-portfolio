@@ -80,6 +80,10 @@ export function mountExhibit(host, id, locale = "en") {
       const chapter = chapters[state.chapter];
       const isLast = state.chapter === chapters.length - 1;
       view += `<article class="${module.kind === "research" ? "research-leaf" : "case-step"} story-enter"><span class="tiny-label">${h(copy.chapter)} ${state.chapter + 1} / ${chapters.length}</span><h3>${h(field(chapter, "title", locale))}</h3><p>${h(field(chapter, "text", locale))}</p></article><div class="case-footer"><span>${state.chapter + 1} / ${chapters.length}</span>${!isLast ? `<button data-next>${h(copy.next)} →</button>` : `<span>✓ ${h(copy.finished)}</span>`}</div>`;
+      const demoUrl = safeUrl(chapter.embedUrl);
+      if (demoUrl) {
+        view += `<section class="embedded-demo" data-demo-stage aria-label="${h(field(chapter, "title", locale))}"><div class="demo-toolbar"><span>${h(locale === "zh" ? "可操作原型 · 脱敏数据" : "Interactive prototype · Anonymized data")}</span><div><button type="button" data-embed-fullscreen>${h(copy.fullscreenDemo)}</button><a href="${h(demoUrl)}" target="_blank" rel="noopener noreferrer">${h(copy.openDemo)} ↗</a></div></div><iframe src="${h(demoUrl)}" title="${h(copy.demoFrameTitle)}" loading="lazy" allow="fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></section>`;
+      }
     }
     view += `${picture(item, "award-photo", locale)}<div class="paper-links">${links(field(item, "links", locale), locale)}</div>`;
   }
@@ -96,6 +100,13 @@ export function mountExhibit(host, id, locale = "en") {
 }
 
 document.addEventListener("click", (event) => {
+  const fullscreenButton = event.target.closest("[data-embed-fullscreen]");
+  if (fullscreenButton) {
+    const stage = fullscreenButton.closest("[data-demo-stage]");
+    if (document.fullscreenElement === stage) document.exitFullscreen?.();
+    else stage?.requestFullscreen?.();
+    return;
+  }
   const button = event.target.closest("[data-pick]");
   if (button && current) {
     const state = states.get(current.id);

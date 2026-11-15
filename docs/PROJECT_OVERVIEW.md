@@ -24,7 +24,7 @@ Recruiters are the primary audience. Hiring managers and potential collaborators
 - **AI Projects**: three stories only—Small-U Feedback Assistant, GameLingo AI, and Inspiration AI—with honest stage labels.
 - **Career Harbor**: selected evidence from Joy Media, ZEEKR, and DiDi, organized around capabilities rather than a long resume.
 
-The Small-U Feedback Assistant is currently labelled **Prototype** based on Lily's latest update; demonstrable scope and artifacts still need confirmation. GameLingo AI is currently framed as a player insight concept, which differs from the supplied localization-checking PRD. Inspiration AI is a concept unless its implementation status changes.
+The Small-U Feedback Assistant is labelled **Prototype**. Its confirmed demo supports survey configuration, AI-assisted question drafting, editing and review, simulated publishing, and an anonymized feedback dashboard. Dashboard data comes from real feedback and is anonymized for display; Feishu publishing remains simulated. GameLingo AI is currently framed as a player insight concept, which differs from the supplied localization-checking PRD. Inspiration AI is a concept unless its implementation status changes.
 
 ## Status
 

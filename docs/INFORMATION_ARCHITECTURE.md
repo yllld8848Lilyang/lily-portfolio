@@ -29,7 +29,7 @@ Tell the Small-U story as a research and product-operations case: discover a pro
 
 Show only these three product stories:
 
-1. **Small-U Feedback Assistant** — status provided by Lily: Prototype. Explain why it is being built, who it serves, how the prototype works, and its roadmap. Confirm the demonstrable scope before using screenshots or describing implemented functionality.
+1. **Small-U Feedback Insights Assistant** — status: Prototype. Explain its origin, intended users, confirmed survey/review/analytics interactions, personal contribution, and next steps. Embed the live prototype after the project story, with full-screen and new-window access. Label dashboard data as anonymized and publishing as simulated.
 2. **GameLingo AI** — the current direction is a Player Insight Engine that analyzes Steam reviews and Reddit discussions to identify player pain points. Treat as a concept unless an implementation is confirmed. The supplied older localization-checking PRD does not match this new direction and must not be used as the current feature definition.
 3. **Inspiration AI** — an AI Marketing Strategy Generator. Inputs: brand, audience, and goal. Intended outputs: campaign idea, growth strategy, and content plan. Label as a concept until its stage is confirmed.
 

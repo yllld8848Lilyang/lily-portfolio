@@ -8,6 +8,8 @@
 - [x] Confirm the About Lily home profile and the three island areas.
 - [x] Confirm website name, English/Chinese introduction, and Chinese title treatment.
 - [x] Keep private contact details out and use the approved GitHub repository link.
+- [x] Confirm Small-U interactive scope, anonymized dashboard-data wording, and simulated Feishu publishing.
+- [x] Add an embedded, full-screen-capable Small-U demo after its project story.
 
 ## Product and design
 

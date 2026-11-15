@@ -45,8 +45,10 @@ Show exactly three product stories. State the project stage on each card and det
 ### Small-U Feedback Assistant
 
 - **Stage:** Prototype (as provided by Lily).
-- **Story:** why it is being built, intended user, confirmed prototype workflow, and roadmap.
-- **Boundary:** no feature will be described as implemented until Lily confirms that it is demonstrable in the prototype. Proposed workflow ideas from the handover remain proposals unless confirmed.
+- **Story:** an independent prototype inspired by Lily's Small-U AI product operations experience; show survey setup, AI-assisted question drafting, editing/review, simulated publishing, and the anonymized analytics dashboard.
+- **Interaction:** embed the live Small-U page as a fourth chapter in the project detail panel, with a full-screen option and a new-window link.
+- **Data boundary:** Lily confirmed that dashboard data is anonymized from real feedback. No raw Feishu rows are linked or reproduced. Feishu publication remains simulated and does not create a live form or send notifications.
+- **Contribution:** describe Lily's independent product positioning, information architecture, workflow, and interactive web prototype design/development; label the project Prototype, not launched or complete.
 
 ### GameLingo AI
 
@@ -82,7 +84,7 @@ Every public section, navigation label, project stage, and evidence caption will
 ## Confirmed implementation boundaries
 
 - Use the approved Chinese title “AI 探索岛”.
-- Show Small-U at Prototype stage, but describe the workflow as project direction unless a feature is confirmed as demonstrable; no prototype screenshot is assumed.
+- Show Small-U at Prototype stage and document the confirmed interactions, embedded demo, full-screen option, and separate-page link.
 - Show the approved aggregate figures “50+ needs” and “7 optimization directions”. Do not link the Feishu table or reproduce its rows.
 - Show GameLingo AI and Inspiration AI as concepts; show Small-U Feedback Assistant as a prototype.
 - Use the GitHub repository link as the public project link. Do not publish the private CV, phone, personal email, or messaging ID.

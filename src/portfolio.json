@@ -136,35 +136,42 @@
       "items": [
         {
           "title": "Small-U Feedback Assistant",
-          "titleZh": "小U反馈分析助手",
-          "summary": "A prototype project exploring how product teams can turn scattered feedback into traceable insights and reviewable recommendations.",
-          "summaryZh": "探索如何帮助产品团队把分散反馈转化为可追溯的洞察与可审核的建议。",
-          "kicker": "PROTOTYPE · INDEPENDENT BUILD",
-          "kickerZh": "原型 · 独立构建",
+          "titleZh": "小U反馈洞察助手",
+          "summary": "An independently designed AI product operations prototype, inspired by my Small-U experience at Joy Media. It explores how teams can turn user needs and anonymized feedback into clearer product insights.",
+          "summaryZh": "基于我在无忧传媒参与小U AI 产品运营的经历启发，自主设计的 AI 产品运营原型，探索如何把用户需求与脱敏反馈转化为更清晰的产品洞察。",
+          "kicker": "PROTOTYPE · INDEPENDENT PRODUCT DESIGN",
+          "kickerZh": "原型 · 独立产品设计",
           "chapters": [
             {
               "title": "Why build it",
               "titleZh": "为什么做",
-              "text": "Feedback can be spread across conversations and documents. The project explores a clearer way to connect each product opportunity with its source evidence.",
-              "textZh": "反馈可能分散在不同沟通与文档中。项目探索如何把产品机会与来源证据更清楚地关联起来。"
+              "text": "Inspired by my AI product operations experience with Small-U, this prototype addresses a familiar challenge: user needs and feedback can be scattered across conversations and documents. The goal is to connect them to clearer product opportunities.",
+              "textZh": "项目受到我参与小U AI 产品运营经历的启发，聚焦一个实际问题：用户需求与反馈容易分散在沟通和文档中，难以形成清晰的产品机会。"
             },
             {
               "title": "Who it is for",
               "titleZh": "为谁解决问题",
-              "text": "Product and operations teammates who need to review user feedback, understand recurring pain points, and prepare evidence-led iteration proposals.",
-              "textZh": "面向需要审阅用户反馈、理解重复痛点并准备证据支持的迭代建议的产品与运营同学。"
+              "text": "Designed for product and operations teams. The prototype supports survey setup, AI-assisted question drafting, editing and review, simulated publishing, and an anonymized feedback dashboard with team-level patterns and recurring themes.",
+              "textZh": "面向产品与运营团队。原型支持问卷配置、AI 辅助生成题目、编辑与审核、模拟发布，以及展示团队分布和高频主题的脱敏反馈看板。"
             },
             {
-              "title": "Prototype direction and roadmap",
-              "titleZh": "原型方向与路线图",
-              "text": "The intended workflow is to organize de-identified feedback, group recurring themes, retain traceable evidence, and draft suggestions for human review. These describe the project direction; specific prototype behavior is not claimed here. Next: evaluate evidence traceability, recommendation usefulness, and handling of uncertain input.",
-              "textZh": "预期流程是整理脱敏反馈、归纳重复主题、保留可追溯证据，并生成由人工审核的建议草稿。这些描述的是项目方向，不代表此处已声明的原型功能。下一步评估证据可追溯性、建议可用性和不确定输入的处理。"
+              "title": "My contribution and next steps",
+              "titleZh": "个人贡献与下一步",
+              "text": "I independently shaped the product positioning, information architecture, workflow, and interactive web prototype, bringing together user research, feedback analysis, and AI product operations. Next, I want to strengthen evidence traceability and human review of product recommendations.",
+              "textZh": "我独立完成产品定位、信息架构、业务流程与交互式 Web 原型设计和开发，将用户研究、反馈分析与 AI 产品运营思路整合为可演示的解决方案。下一步将加强证据追溯与产品建议的人工复核。"
+            },
+            {
+              "title": "Interactive demo",
+              "titleZh": "交互演示",
+              "text": "Explore survey configuration, question drafting and review, simulated publishing, and the anonymized analytics dashboard. Publishing is simulated and does not create a real Feishu form or send notifications. The prototype interface is currently in Chinese.",
+              "textZh": "可体验问卷配置、题目生成与审核、模拟发布和脱敏数据看板。发布环节仅作交互模拟，不会创建真实飞书表单或发送通知。原型界面目前为中文。",
+              "embedUrl": "https://yllld8848lilyang.github.io/Small-U-Feedback-Assistant/"
             }
           ],
-          "reflection": "The prototype must distinguish evidence from interpretation and make uncertainty visible. Real work data is only used within its approved scope.",
-          "reflectionZh": "原型需要区分证据与推断，并明确呈现不确定性。真实业务数据仅在获准范围内使用。",
-          "sourceNote": "Prototype stage as confirmed by Lily; exact demonstrable features remain to be documented.",
-          "sourceNoteZh": "阶段由杨莉确认为原型；可实际演示的具体功能仍待补充。"
+          "reflection": "Core capabilities: User Research · Product Operations · Data Analysis · AI Product Design. Dashboard figures are anonymized from real data; publication remains a local interaction simulation.",
+          "reflectionZh": "核心能力：用户研究 · 产品运营 · 数据分析 · AI 产品设计。看板数据来自真实数据脱敏；发布流程仍为本地交互模拟。",
+          "sourceNote": "Independent prototype inspired by Lily’s Small-U operations experience. Dashboard data is anonymized; no real Feishu form or notification is created.",
+          "sourceNoteZh": "自主设计原型，受到杨莉参与小U运营经历的启发。看板数据为脱敏数据；不会创建真实飞书表单或发送通知。"
         },
         {
           "title": "GameLingo AI",

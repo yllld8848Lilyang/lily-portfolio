@@ -6,8 +6,10 @@ The CV describes Lily's AI product operations work on Small-U: collecting requir
 
 ## Independent project
 
-The handover describes a Small-U feedback analysis assistant that organizes feedback into traceable themes, evidence, and reviewable recommendations. Lily's latest update labels the project **Prototype**. Confirm the current demonstrable workflow and available public screenshots before describing specific implemented features. Do not label it launched or complete.
+The project is an independently designed **Prototype**, inspired by Lily's AI product operations experience with Small-U. The public demo supports survey configuration, AI-assisted question drafting, question editing and review, simulated publishing, and a feedback dashboard with team-level patterns and recurring themes. It does not create a real Feishu form or send notifications.
+
+Lily confirmed that dashboard data comes from real feedback and is anonymized for display. Keep the dashboard labelled as anonymized data. Do not expose the source table, raw rows, or identifying company/user information.
 
 ## Publication boundary
 
-The de-identified Feishu evidence table is not accessible in the current session because it redirects to Feishu sign-in. Confirm that an aggregate summary may be published; do not expose the source table link, raw rows, or company information. Confirm personal contribution, metrics, and company confidentiality. Use synthetic examples if real feedback cannot be cleared for public use.
+The Feishu evidence table is not linked in the public portfolio. Use only the anonymized information Lily confirmed as appropriate to display. Distinguish the real Small-U operations experience from the independently designed prototype, and do not present simulated publication as a live company integration.

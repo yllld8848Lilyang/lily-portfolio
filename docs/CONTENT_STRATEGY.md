@@ -16,9 +16,9 @@ Show how Lily connects user understanding, product operations, marketing judgmen
 - The Chinese and English CVs show the same main role date ranges; some bullets and project details are arranged or described differently. Use the CV as Lily requested and confirm any attribution that is unclear.
 - The handover document marks many figures as CV claims needing verification. Preserve that qualification.
 - The GameLingo AI PRD is a planning artifact, not evidence of a built product.
-- The handover described the Small-U Feedback Assistant as a project to build; Lily's latest update labels it **Prototype**. Use this newer status and confirm the actual demonstrable scope before describing implemented details.
+- Lily labels the Small-U Feedback Assistant **Prototype** and confirms its demonstrable scope: survey configuration, AI-assisted question drafting, editing/review, simulated publishing, and an anonymized feedback dashboard. Keep the live Feishu integration status clear: publishing is simulated.
 - GameLingo's latest positioning as a Player Insight Engine supersedes the different direction in the supplied draft PRD.
 
 ## Privacy and permissions
 
-Do not publish phone numbers, private email addresses, messaging IDs, internal links, unapproved screenshots, raw user feedback, or confidential business data. Use public contact details only after explicit confirmation. Use synthetic examples only when clearly labelled.
+Do not publish phone numbers, private email addresses, messaging IDs, internal links, raw user feedback, or confidential business data. The Small-U dashboard data is anonymized from real feedback, as confirmed by Lily. Use public contact details only after explicit confirmation.

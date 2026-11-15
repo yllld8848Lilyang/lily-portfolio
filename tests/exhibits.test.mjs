@@ -25,3 +25,30 @@ test('Confirmed empty sections render a neutral state for every layout, then all
   }
  } finally {delete globalThis.document;}
 });
+
+test('Small-U interactive chapter embeds the bilingual prototype with fullscreen and direct access',async()=>{
+ globalThis.document={addEventListener(){},getElementById(){return {addEventListener(){}};}};
+ try {
+  const {categories}=await import('../src/content.js');
+  const {mountExhibit}=await import('../src/exhibits.js');
+  const host={innerHTML:''};
+  const project=categories.find((module)=>module.id==='ai-projects');
+  const item=project.items[0];
+  const demoIndex=item.chapters.findIndex((chapter)=>chapter.embedUrl);
+  assert.ok(demoIndex>0,'the demo follows the project story');
+  const {chapters}=item;
+  try {
+   item.chapters=[chapters[demoIndex]];
+   mountExhibit(host,'ai-projects','en');
+   assert.match(host.innerHTML,/Small-U Feedback Insights Assistant interactive prototype/);
+   assert.match(host.innerHTML,/data-embed-fullscreen/);
+   assert.match(host.innerHTML,/Open the full demo/);
+   assert.match(host.innerHTML,/anonymized dashboard/);
+   mountExhibit(host,'ai-projects','zh');
+   assert.match(host.innerHTML,/小U反馈洞察助手交互原型/);
+   assert.match(host.innerHTML,/全屏体验原型/);
+   assert.match(host.innerHTML,/新窗口打开完整原型/);
+   assert.match(host.innerHTML,/脱敏数据/);
+  } finally {item.chapters=chapters;}
+ } finally {delete globalThis.document;}
+});

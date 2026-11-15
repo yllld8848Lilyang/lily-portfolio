@@ -70,6 +70,9 @@ export const COPY = {
     chapter: "CHAPTER",
     next: "Continue reading",
     finished: "End of this story",
+    openDemo: "Open the full demo",
+    fullscreenDemo: "View demo full screen",
+    demoFrameTitle: "Small-U Feedback Insights Assistant interactive prototype",
     profileCapabilities: "Core capabilities",
     education: "Education",
     fieldNotes: "FIELD NOTES",
@@ -145,6 +148,9 @@ export const COPY = {
     chapter: "章节",
     next: "继续阅读",
     finished: "已读完这段故事",
+    openDemo: "新窗口打开完整原型",
+    fullscreenDemo: "全屏体验原型",
+    demoFrameTitle: "小U反馈洞察助手交互原型",
     profileCapabilities: "核心能力",
     education: "教育背景",
     fieldNotes: "实地笔记",
@@ -154,15 +160,15 @@ export const COPY = {
 export const THEME_COPY = {
   forest: {
     en: { english: "FOREST ISLAND", caption: "Curiosity, made into a world." },
-    zh: { english: "探索森林", caption: "把好奇心，走成一座岛。" },
+    zh: { english: "FOREST ISLAND", caption: "把好奇心，走成一座岛。" },
   },
   desert: {
     en: { english: "SANDBAR", caption: "Find possibility in every new perspective." },
-    zh: { english: "探索沙洲", caption: "在每一种视角里，发现新的可能。" },
+    zh: { english: "SANDBAR", caption: "在每一种视角里，发现新的可能。" },
   },
   ocean: {
     en: { english: "SHALLOW SEA", caption: "Let ideas surface." },
-    zh: { english: "探索浅海", caption: "让灵感浮现。" },
+    zh: { english: "SHALLOW SEA", caption: "让灵感浮现。" },
   },
 };
 
