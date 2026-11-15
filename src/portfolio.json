@@ -281,11 +281,25 @@
           "media": [
             {
               "type": "image",
-              "src": "/assets/rush-desert-trip.jpg",
-              "caption": "A Rush Outdoor desert trip — the kind of moment participants shared",
-              "captionZh": "热石户外沙漠线路 · 用户愿意分享的瞬间"
+              "src": "/assets/rush-topic-page.jpg",
+              "caption": "#RushOutdoor topic page: 18K views, 273 discussions (screenshot)",
+              "captionZh": "#RushOutdoor 话题页：1.8 万浏览、273 讨论（截图）"
+            },
+            {
+              "type": "image",
+              "src": "/assets/rush-ugc-note-1.jpg",
+              "caption": "User note · Ulan Butong trip, tagging the topic and brand account",
+              "captionZh": "用户笔记 · 乌兰布统之行，带话题并 @ 官方账号"
+            },
+            {
+              "type": "image",
+              "src": "/assets/rush-ugc-note-2.jpg",
+              "caption": "User note · day-trip cooking class review",
+              "captionZh": "用户笔记 · 一日游泰菜课程体验分享"
             }
-          ]
+          ],
+          "sourceNote": "Screenshots are from public Xiaohongshu pages; usernames, avatars and faces are hidden.",
+          "sourceNoteZh": "截图来自小红书公开页面，已隐去用户昵称、头像与人脸。"
         },
         {
           "title": "The Biskery · UGC Video for a Leeds Bakery",
