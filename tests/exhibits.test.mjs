@@ -43,7 +43,7 @@ test('Small-U interactive chapter embeds the bilingual prototype with fullscreen
    assert.match(host.innerHTML,/Small-U Feedback Insights Assistant interactive prototype/);
    assert.match(host.innerHTML,/data-embed-fullscreen/);
    assert.match(host.innerHTML,/Open the full demo/);
-   assert.match(host.innerHTML,/anonymized dashboard/);
+   assert.match(host.innerHTML,/anonymized analytics dashboard/);
    mountExhibit(host,'ai-projects','zh');
    assert.match(host.innerHTML,/小U反馈洞察助手交互原型/);
    assert.match(host.innerHTML,/全屏体验原型/);
