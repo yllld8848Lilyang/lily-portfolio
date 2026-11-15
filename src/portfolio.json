@@ -165,7 +165,7 @@
               "titleZh": "交互演示",
               "text": "Explore survey configuration, locally generated question drafts, editing and review, simulated publishing, and the anonymized analytics dashboard. Question drafting and publishing are prototype simulations; no live AI service, Feishu form, or notifications are connected. The prototype interface is currently in Chinese.",
               "textZh": "可体验问卷配置、本地模拟生成题目、编辑与审核、模拟发布和脱敏数据看板。题目生成和发布均为原型演示，未接入在线 AI 服务，也不会创建真实飞书表单或发送通知。原型界面目前为中文。",
-              "embedUrl": "https://yllld8848lilyang.github.io/Small-U-Feedback-Assistant/"
+              "embedUrl": "https://yllld8848lilyang.github.io/Small-U-Feedback-Assistant/?embed=1"
             }
           ],
           "reflection": "Core capabilities: User Research · Product Operations · Data Analysis · AI Product Design. Dashboard figures are anonymized from real data; publication remains a local interaction simulation.",
