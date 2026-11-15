@@ -43,7 +43,7 @@ test('Small-U interactive chapter embeds the bilingual prototype with fullscreen
    assert.match(host.innerHTML,/Small-U Feedback Insights Assistant interactive prototype/);
    assert.match(host.innerHTML,/data-embed-fullscreen/);
    assert.match(host.innerHTML,/Open the full demo/);
-   assert.match(host.innerHTML,/anonymized analytics dashboard/);
+   assert.match(host.innerHTML,/anonymised real data/);
    mountExhibit(host,'ai-projects','zh');
    assert.match(host.innerHTML,/小U反馈洞察助手交互原型/);
    assert.match(host.innerHTML,/全屏体验原型/);
@@ -51,4 +51,30 @@ test('Small-U interactive chapter embeds the bilingual prototype with fullscreen
    assert.match(host.innerHTML,/脱敏数据/);
   } finally {item.chapters=chapters;}
  } finally {delete globalThis.document;}
+});
+
+test('Work samples render videos and images, and the research case links to its prototype',async()=>{
+ globalThis.document={addEventListener(){},getElementById(){return {addEventListener(){}};}};
+ try {
+  const {categories}=await import('../src/content.js');
+  const {mountExhibit}=await import('../src/exhibits.js');
+  const host={innerHTML:''};
+  mountExhibit(host,'marketing-content','en');
+  assert.match(host.innerHTML,/<video[^>]+controls/);
+  assert.match(host.innerHTML,/anonymised\)/);
+  mountExhibit(host,'marketing-content','zh');
+  assert.match(host.innerHTML,/已做脱敏处理/);
+  mountExhibit(host,'user-insight','en');
+  const insight=categories.find(m=>m.id==='user-insight');
+  assert.ok(insight.items.some(i=>i.crossLink));
+  const projects=categories.findIndex(m=>m.id==='ai-projects');
+  assert.ok(projects>=0);
+ } finally {delete globalThis.document;}
+});
+
+test('In-progress items are labelled',async()=>{
+ const {categories}=await import('../src/content.js');
+ const flagged=categories.flatMap(m=>m.items).filter(i=>i.status==='in-progress').map(i=>i.title);
+ assert.ok(flagged.includes('AI Ad Case'));
+ assert.ok(flagged.some(t=>t.startsWith('Inspiration AI')));
 });

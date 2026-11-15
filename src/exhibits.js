@@ -15,13 +15,41 @@ const metrics = (items = [], locale = "en") =>
     : "";
 const imageUrl = (path) =>
   path?.startsWith("/")
-    ? `${import.meta.env.BASE_URL}${path.slice(1)}`
+    ? `${import.meta.env?.BASE_URL ?? "/"}${path.slice(1)}`
     : path;
 const picture = (item, cls = "", locale = "en") => {
   if (!item.image) return "";
   const alt = field(item, "alt", locale) || field(item, "title", locale);
   const src = imageUrl(item.image);
   return `<button class="evidence ${cls}" data-photo="${h(src)}" data-caption="${h(alt)}" aria-label="${h(COPY[locale].zoom)}: ${h(alt)}"><img src="${h(src)}" alt="${h(alt)}" loading="lazy"/><span class="zoom-hint">${h(COPY[locale].zoom)} ↗</span></button>`;
+};
+const badge = (item, locale = "en") => {
+  if (!item.status) return "";
+  const label = COPY[locale][item.status === "live" ? "statusLive" : "statusInProgress"];
+  return `<span class="status-badge is-${h(item.status)}">${h(label)}</span>`;
+};
+const mediaGrid = (item, locale = "en") => {
+  const media = Array.isArray(item.media) ? item.media : [];
+  if (!media.length) return "";
+  const cells = media
+    .map((entry) => {
+      const caption = field(entry, "caption", locale);
+      const src = imageUrl(entry.src);
+      if (entry.type === "video") {
+        const poster = entry.poster ? ` poster="${h(imageUrl(entry.poster))}"` : "";
+        return `<figure class="media-cell is-video"><video src="${h(src)}"${poster} controls playsinline preload="none"></video><figcaption>${h(caption)}</figcaption></figure>`;
+      }
+      return `<figure class="media-cell is-image"><button class="media-zoom" data-photo="${h(src)}" data-caption="${h(caption)}" aria-label="${h(COPY[locale].zoom)}: ${h(caption)}"><img src="${h(src)}" alt="${h(caption)}" loading="lazy"/></button><figcaption>${h(caption)}</figcaption></figure>`;
+    })
+    .join("");
+  return `<section class="media-grid" aria-label="${h(COPY[locale].workSamples)}"><h4>${h(COPY[locale].workSamples)}</h4><div>${cells}</div></section>`;
+};
+const crossLink = (item, locale = "en") => {
+  const link = item.crossLink;
+  if (!link) return "";
+  const index = categories.findIndex((category) => category.id === link.module);
+  if (index < 0) return "";
+  return `<button class="cross-link" data-jump="${index}" data-jump-item="${Number(link.item) || 0}">${h(field(link, "label", locale))} →</button>`;
 };
 const fold = (title, text) =>
   text
@@ -59,16 +87,16 @@ export function mountExhibit(host, id, locale = "en") {
     );
     view += `<article class="screening story-enter text-only"><div class="screening-copy"><span class="tiny-label">${h(field(item, "kicker", locale))}</span><h3>${h(field(item, "title", locale))}</h3><p>${h(field(item, "summary", locale))}</p>${metrics(field(item, "metrics", locale), locale)}${links(field(item, "links", locale), locale)}</div></article>`;
     if (module.timeline?.length) {
-      view += `<details class="career-fold"><summary>${h(copy.careerTimeline)} ＋</summary><div class="career-timeline">${module.timeline.map((entry) => `<article><small>${h(field(entry, "period", locale))}</small><h4>${h(field(entry, "title", locale))}</h4><p>${h(field(entry, "text", locale))}</p></article>`).join("")}</div></details>`;
+      view += `<details class="career-fold" open><summary>${h(copy.careerTimeline)} ＋</summary><div class="career-timeline">${module.timeline.map((entry) => `<article><small>${h(field(entry, "period", locale))}</small><h4>${h(field(entry, "title", locale))}</h4><p>${h(field(entry, "text", locale))}</p></article>`).join("")}</div></details>`;
     }
   } else {
     if (module.timeline?.length) {
       view = `<details class="career-fold"><summary>${h(copy.careerTimeline)} ＋</summary><div class="career-timeline">${module.timeline.map((entry) => `<article><small>${h(field(entry, "period", locale))}</small><h4>${h(field(entry, "title", locale))}</h4><p>${h(field(entry, "text", locale))}</p></article>`).join("")}</div></details>`;
     }
     if (module.items.length > 1) {
-      view += choices(module.items.map((entry) => h(field(entry, "title", locale))), "item", state.item, locale);
+      view += choices(module.items.map((entry) => `${h(field(entry, "title", locale))}${entry.status === "in-progress" ? ` <i class="choice-flag">${h(copy.statusInProgress)}</i>` : ""}`), "item", state.item, locale);
     }
-    view += `<div class="${module.kind === "research" ? "journal-cover" : "project-cover"}"><div><span class="tiny-label">${h(field(item, "kicker", locale))}</span><h3>${h(field(item, "title", locale))}</h3><p>${h(field(item, "summary", locale))}</p>${metrics(field(item, "metrics", locale), locale)}</div></div>`;
+    view += `<div class="${module.kind === "research" ? "journal-cover" : "project-cover"}"><div>${badge(item, locale)}<span class="tiny-label">${h(field(item, "kicker", locale))}</span><h3>${h(field(item, "title", locale))}</h3><p>${h(field(item, "summary", locale))}</p>${metrics(field(item, "metrics", locale), locale)}</div></div>`;
     view += choices(
       chapters.map((chapter, index) => `<b>${String(index + 1).padStart(2, "0")}</b>${h(field(chapter, "title", locale))}`),
       "chapter",
@@ -85,6 +113,7 @@ export function mountExhibit(host, id, locale = "en") {
         view += `<section class="embedded-demo" data-demo-stage aria-label="${h(field(chapter, "title", locale))}"><div class="demo-toolbar"><span>${h(locale === "zh" ? "可操作原型 · 脱敏数据" : "Interactive prototype · Anonymized data")}</span><div><button type="button" data-embed-fullscreen>${h(copy.fullscreenDemo)}</button><a href="${h(demoUrl)}" target="_blank" rel="noopener noreferrer">${h(copy.openDemo)} ↗</a></div></div><iframe src="${h(demoUrl)}" title="${h(copy.demoFrameTitle)}" loading="lazy" allow="fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></section>`;
       }
     }
+    view += mediaGrid(item, locale) + crossLink(item, locale);
     view += `${picture(item, "award-photo", locale)}<div class="paper-links">${links(field(item, "links", locale), locale)}</div>`;
   }
 
@@ -106,6 +135,15 @@ document.addEventListener("click", (event) => {
     const expanded = stage?.classList.toggle("is-fullscreen");
     fullscreenButton.textContent = COPY[current?.locale || "en"][expanded ? "exitFullscreenDemo" : "fullscreenDemo"];
     fullscreenButton.setAttribute("aria-pressed", String(Boolean(expanded)));
+    return;
+  }
+  const jump = event.target.closest("[data-jump]");
+  if (jump) {
+    const target = categories[Number(jump.dataset.jump)];
+    if (target) {
+      states.set(target.id, { item: Number(jump.dataset.jumpItem) || 0, chapter: 0 });
+      window.dispatchEvent(new CustomEvent("portfolio:open", { detail: { index: Number(jump.dataset.jump) } }));
+    }
     return;
   }
   const button = event.target.closest("[data-pick]");
@@ -134,6 +172,17 @@ document.addEventListener("click", (event) => {
     dialog.showModal();
   }
 });
+
+document.addEventListener(
+  "play",
+  (event) => {
+    if (event.target.tagName !== "VIDEO") return;
+    document.querySelectorAll(".media-grid video").forEach((video) => {
+      if (video !== event.target) video.pause();
+    });
+  },
+  true,
+);
 
 document.addEventListener("keydown", (event) => {
   if (event.key !== "Escape") return;

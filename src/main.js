@@ -41,6 +41,11 @@ function renderProfile() {
   $("profile-capabilities").innerHTML = (profile.capabilities || [])
     .map((capability) => `<span>${escapeHTML(text(capability, "name"))}</span>`)
     .join("");
+  $("contact-links").setAttribute("aria-label", COPY[locale].contactLinks);
+  $("contact-links").innerHTML = (profile.links || [])
+    .map((link) => `<a href="${escapeHTML(link.url)}"${link.url.startsWith("mailto:") ? "" : ' target="_blank" rel="noopener noreferrer"'}>${escapeHTML(text(link, "label"))} ↗</a>`)
+    .join("");
+  $("welcome-disclaimer").textContent = text(profile, "disclaimer");
   $("education-strip").setAttribute("aria-label", COPY[locale].education);
   $("education-strip").innerHTML = (profile.education || [])
     .map((education) => `<article><b>${escapeHTML(text(education, "degree"))}</b><span>${escapeHTML(text(education, "institution"))}</span><small>${escapeHTML(text(education, "period"))}</small></article>`)
@@ -55,38 +60,9 @@ function renderNavigation() {
   for (const element of [campLabels, categoryNav, mapSites, welcomeNav]) element.replaceChildren();
 
   categories.forEach((category, index) => {
-    //const name = text(category, "name");
-   const defaultName = text(category, "name");
+    const name = text(category, "name");
+    const short = text(category, "short");
 
-const themeNames = {
-  forest: {
-    zh: "洞察森林",
-    en: "Inside Forest",
-  },
-  desert: {
-    zh: "探索沙洲",
-    en: "Inside Sandbar",
-  },
-  ocean: {
-    zh: "探索浅海",
-    en: "Inside Shallow Sea",
-  },
-};
-
-    const languageKey = locale === "zh" ? "zh" : "en";
-    
-const name =
-  index === 0
-    ? themeNames[currentTheme]?.[locale] || defaultName
-    : defaultName;
-
-const short =
-  index === 0
-    ? name
-    : text(category, "short");
-
-
-    
     const label = document.createElement("button");
     label.className = "camp-label";
     label.dataset.camp = index;
@@ -145,7 +121,7 @@ function applyLocale() {
   $("evidence-dialog").setAttribute("aria-label", copy.fullImage);
   $("close-evidence").setAttribute("aria-label", copy.closeImage);
   const primaryLink = profile.links?.[0];
-  $("channel").hidden = !primaryLink;
+  $("channel").hidden = true;
   if (primaryLink) $("channel").querySelector("span").textContent = text(primaryLink, "label");
 
   document.title = `${locale === "zh" ? profile.titleZh || profile.title : profile.title} · ${profile.name}`;
@@ -218,8 +194,14 @@ function navigate(index) {
     return;
   }
   island?.travelTo(index);
-  setStatus("heading", index);
+  openWork(index);
 }
+
+window.addEventListener("portfolio:open", (event) => {
+  const index = Number(event.detail?.index);
+  if (!categories[index]) return;
+  openWork(index);
+});
 
 document.addEventListener("click", (event) => {
   const destination = event.target.closest("[data-camp]");

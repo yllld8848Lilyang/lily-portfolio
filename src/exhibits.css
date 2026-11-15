@@ -947,3 +947,108 @@ body[data-theme="ocean"] .work-panel .panel-scene {
 .brand-copy{max-width:240px;overflow-wrap:anywhere}
 #camp-total{font-weight:inherit}
 @media(max-width:700px){.brand-copy{max-width:135px}.screening-copy .ex-metrics{display:block}.screening-copy .ex-metrics>div{margin:10px 0}}
+
+/* Status badges */
+.status-badge {
+  display: inline-block;
+  font-size: 10px;
+  letter-spacing: 0.4px;
+  border-radius: 999px;
+  padding: 3px 9px;
+  margin: 0 8px 6px 0;
+  vertical-align: middle;
+}
+.status-badge.is-live {
+  background: #3f77611f;
+  color: var(--accent);
+}
+.status-badge.is-in-progress {
+  background: #d7aa5326;
+  color: #8a6420;
+}
+.choice-flag {
+  display: inline-block;
+  white-space: nowrap;
+  font-style: normal;
+  font-size: 9px;
+  color: #8a6420;
+  background: #d7aa5326;
+  border-radius: 999px;
+  padding: 1px 6px;
+  margin-left: 4px;
+}
+
+/* Work samples: images and videos */
+.media-grid {
+  margin: 18px 0 6px;
+}
+.media-grid h4 {
+  font-size: 11px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--soft);
+  margin: 0 0 10px;
+}
+.media-grid > div {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 12px;
+}
+.media-cell {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.media-cell video,
+.media-cell img {
+  display: block;
+  width: 100%;
+  border-radius: 10px;
+  background: #00000010;
+}
+.media-cell.is-video video {
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+  background: #1b2b27;
+}
+.media-cell.is-image img {
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: top;
+}
+.media-zoom {
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: zoom-in;
+  border-radius: 10px;
+}
+.media-zoom:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.media-cell figcaption {
+  font-size: 10px;
+  line-height: 1.45;
+  color: var(--soft);
+}
+
+/* Link from a real case to the prototype it inspired */
+.cross-link {
+  display: block;
+  width: 100%;
+  text-align: left;
+  margin: 14px 0 4px;
+  padding: 12px 14px;
+  border: 1px dashed var(--accent);
+  border-radius: 10px;
+  background: #3f77610d;
+  color: var(--accent);
+  font-size: 12px;
+  cursor: pointer;
+}
+.cross-link:hover,
+.cross-link:focus-visible {
+  background: #3f77611c;
+}

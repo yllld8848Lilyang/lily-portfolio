@@ -1586,3 +1586,30 @@ body:not(.exploring) .walk-status {
   order: 1;
   opacity: 0.88;
 }
+
+/* Contact row and disclaimer on the welcome card */
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 14px 0 0;
+}
+.contact-links a {
+  font-size: 11px;
+  letter-spacing: 0.3px;
+  color: var(--accent);
+  text-decoration: none;
+  border: 1px solid var(--line);
+  background: #ffffff8c;
+  border-radius: 999px;
+  padding: 6px 12px;
+}
+.contact-links a:hover,
+.contact-links a:focus-visible {
+  border-color: var(--accent);
+}
+.welcome-disclaimer {
+  font-size: 9px;
+  color: #789385;
+  margin: 6px 0 0;
+}
