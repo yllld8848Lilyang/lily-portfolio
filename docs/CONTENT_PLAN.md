@@ -45,7 +45,7 @@ Show exactly three product stories. State the project stage on each card and det
 ### Small-U Feedback Assistant
 
 - **Stage:** Prototype (as provided by Lily).
-- **Story:** an independent prototype inspired by Lily's Small-U AI product operations experience; show survey setup, AI-assisted question drafting, editing/review, simulated publishing, and the anonymized analytics dashboard.
+- **Story:** an independent prototype inspired by Lily's Small-U AI product operations experience; show survey setup, locally simulated question drafting, editing/review, simulated publishing, and the anonymized analytics dashboard. Do not imply a live AI service or Feishu integration.
 - **Interaction:** embed the live Small-U page as a fourth chapter in the project detail panel, with a full-screen option and a new-window link.
 - **Data boundary:** Lily confirmed that dashboard data is anonymized from real feedback. No raw Feishu rows are linked or reproduced. Feishu publication remains simulated and does not create a live form or send notifications.
 - **Contribution:** describe Lily's independent product positioning, information architecture, workflow, and interactive web prototype design/development; label the project Prototype, not launched or complete.

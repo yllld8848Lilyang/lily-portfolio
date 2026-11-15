@@ -151,8 +151,8 @@
             {
               "title": "Who it is for",
               "titleZh": "为谁解决问题",
-              "text": "Designed for product and operations teams. The prototype supports survey setup, AI-assisted question drafting, editing and review, simulated publishing, and an anonymized feedback dashboard with team-level patterns and recurring themes.",
-              "textZh": "面向产品与运营团队。原型支持问卷配置、AI 辅助生成题目、编辑与审核、模拟发布，以及展示团队分布和高频主题的脱敏反馈看板。"
+              "text": "Designed for product and operations teams. The prototype demonstrates survey setup, locally generated candidate questions based on product context, editing and review, simulated publishing, and an anonymized feedback dashboard with team-level patterns and recurring themes.",
+              "textZh": "面向产品与运营团队。原型演示问卷配置、基于产品上下文在本地生成候选题目、编辑与审核、模拟发布，以及展示团队分布和高频主题的脱敏反馈看板。"
             },
             {
               "title": "My contribution and next steps",
@@ -163,8 +163,8 @@
             {
               "title": "Interactive demo",
               "titleZh": "交互演示",
-              "text": "Explore survey configuration, question drafting and review, simulated publishing, and the anonymized analytics dashboard. Publishing is simulated and does not create a real Feishu form or send notifications. The prototype interface is currently in Chinese.",
-              "textZh": "可体验问卷配置、题目生成与审核、模拟发布和脱敏数据看板。发布环节仅作交互模拟，不会创建真实飞书表单或发送通知。原型界面目前为中文。",
+              "text": "Explore survey configuration, locally generated question drafts, editing and review, simulated publishing, and the anonymized analytics dashboard. Question drafting and publishing are prototype simulations; no live AI service, Feishu form, or notifications are connected. The prototype interface is currently in Chinese.",
+              "textZh": "可体验问卷配置、本地模拟生成题目、编辑与审核、模拟发布和脱敏数据看板。题目生成和发布均为原型演示，未接入在线 AI 服务，也不会创建真实飞书表单或发送通知。原型界面目前为中文。",
               "embedUrl": "https://yllld8848lilyang.github.io/Small-U-Feedback-Assistant/"
             }
           ],
