@@ -676,8 +676,12 @@ body[data-theme="ocean"] .work-panel .panel-scene {
   border: 0;
   background: #f7f6f1;
 }
-.embedded-demo:fullscreen {
+.embedded-demo.is-fullscreen {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
   width: 100vw;
+  height: 100vh;
   height: 100dvh;
   margin: 0;
   border: 0;

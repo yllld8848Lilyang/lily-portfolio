@@ -103,8 +103,9 @@ document.addEventListener("click", (event) => {
   const fullscreenButton = event.target.closest("[data-embed-fullscreen]");
   if (fullscreenButton) {
     const stage = fullscreenButton.closest("[data-demo-stage]");
-    if (document.fullscreenElement === stage) document.exitFullscreen?.();
-    else stage?.requestFullscreen?.();
+    const expanded = stage?.classList.toggle("is-fullscreen");
+    fullscreenButton.textContent = COPY[current?.locale || "en"][expanded ? "exitFullscreenDemo" : "fullscreenDemo"];
+    fullscreenButton.setAttribute("aria-pressed", String(Boolean(expanded)));
     return;
   }
   const button = event.target.closest("[data-pick]");
@@ -132,6 +133,16 @@ document.addEventListener("click", (event) => {
     dialog.querySelector("p").textContent = photo.dataset.caption;
     dialog.showModal();
   }
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key !== "Escape") return;
+  const stage = document.querySelector("[data-demo-stage].is-fullscreen");
+  if (!stage) return;
+  stage.classList.remove("is-fullscreen");
+  const button = stage.querySelector("[data-embed-fullscreen]");
+  button.textContent = COPY[current?.locale || "en"].fullscreenDemo;
+  button.setAttribute("aria-pressed", "false");
 });
 
 const evidence = document.getElementById("evidence-dialog");
