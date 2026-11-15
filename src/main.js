@@ -37,6 +37,7 @@ function renderProfile() {
   $("welcome-role").textContent = locale === "zh" ? profile.subtitleZh || profile.subtitle : profile.subtitle;
   $("welcome-story").textContent = text(profile, "intro");
   $("welcome-transition").textContent = text(profile, "transition");
+  $("welcome-transition").hidden = !text(profile, "transition");
   $("profile-capabilities").setAttribute("aria-label", COPY[locale].profileCapabilities);
   $("profile-capabilities").innerHTML = (profile.capabilities || [])
     .map((capability) => `<span>${escapeHTML(text(capability, "name"))}</span>`)
