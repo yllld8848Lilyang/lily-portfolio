@@ -440,8 +440,8 @@
           "crossLink": {
             "module": "ai-projects",
             "item": 0,
-            "label": "This work inspired a prototype I later built myself",
-            "labelZh": "这段工作启发了我后来独立做的原型"
+            "label": "A prototype I built independently, later put into use",
+            "labelZh": "自己独立开发的原型，后投入使用"
           }
         }
       ]
