@@ -25,7 +25,7 @@ const picture = (item, cls = "", locale = "en") => {
 };
 const badge = (item, locale = "en") => {
   if (!item.status) return "";
-  const label = COPY[locale][item.status === "live" ? "statusLive" : "statusInProgress"];
+  const label = COPY[locale][{ live: "statusLive", "in-progress": "statusInProgress", "coming-soon": "statusComingSoon" }[item.status]];
   return `<span class="status-badge is-${h(item.status)}">${h(label)}</span>`;
 };
 const mediaGrid = (item, locale = "en") => {
@@ -50,6 +50,27 @@ const crossLink = (item, locale = "en") => {
   const index = categories.findIndex((category) => category.id === link.module);
   if (index < 0) return "";
   return `<button class="cross-link" data-jump="${index}" data-jump-item="${Number(link.item) || 0}">${h(field(link, "label", locale))} →</button>`;
+};
+const header = (item, locale = "en", tag = "h3") => {
+  const company = field(item, "company", locale) || field(item, "title", locale);
+  const industry = field(item, "industry", locale);
+  const role = field(item, "role", locale);
+  const period = field(item, "period", locale);
+  const roleLine = [role, period].filter(Boolean).join(" · ");
+  return `<div class="case-id">${industry ? `<span class="industry-tag">${h(industry)}</span>` : ""}<${tag}>${h(company)}</${tag}>${roleLine ? `<p class="role-line">${h(roleLine)}</p>` : ""}</div><p class="case-summary">${h(field(item, "summary", locale))}</p>`;
+};
+const groupedChoices = (items, selected, locale = "en") => {
+  const groups = [];
+  items.forEach((entry, index) => {
+    const label = field(entry, "group", locale);
+    let group = groups.find((g) => g.label === label);
+    if (!group) groups.push((group = { label, buttons: [] }));
+    const flag = entry.status && entry.status !== "live" ? ` <i class="choice-flag">${h(COPY[locale][entry.status === "coming-soon" ? "statusComingSoon" : "statusInProgress"])}</i>` : "";
+    group.buttons.push(`<button data-pick="item" data-index="${index}" aria-pressed="${index === selected}">${h(field(entry, "company", locale) || field(entry, "title", locale))}${flag}</button>`);
+  });
+  return `<div class="choice-groups" aria-label="${h(COPY[locale].chooseItem)}">${groups
+    .map((group) => `<div class="choice-group">${group.label ? `<small>${h(group.label)}</small>` : ""}<div class="choice-strip">${group.buttons.join("")}</div></div>`)
+    .join("")}</div>`;
 };
 const fold = (title, text) =>
   text
@@ -79,42 +100,30 @@ export function mountExhibit(host, id, locale = "en") {
   const intro = `${metrics(field(module, "metrics", locale), locale)}<div class="account-links">${links(field(module, "links", locale), locale)}</div>`;
 
   if (module.kind === "gallery") {
-    view = choices(
-      module.items.map((entry, index) => `${String(index + 1).padStart(2, "0")} · ${h(field(entry, "title", locale))}`),
-      "item",
-      state.item,
-      locale,
-    );
-    view += `<article class="screening story-enter text-only"><div class="screening-copy"><span class="tiny-label">${h(field(item, "kicker", locale))}</span><h3>${h(field(item, "title", locale))}</h3><p>${h(field(item, "summary", locale))}</p>${metrics(field(item, "metrics", locale), locale)}${links(field(item, "links", locale), locale)}</div></article>`;
-    if (module.timeline?.length) {
-      view += `<details class="career-fold" open><summary>${h(copy.careerTimeline)} ＋</summary><div class="career-timeline">${module.timeline.map((entry) => `<article><small>${h(field(entry, "period", locale))}</small><h4>${h(field(entry, "title", locale))}</h4><p>${h(field(entry, "text", locale))}</p></article>`).join("")}</div></details>`;
+    const companies = module.items.map((entry) => field(entry, "company", "en")).filter(Boolean);
+    view = `<div class="experience-grid">${module.items
+      .map(
+        (entry) =>
+          `<article class="experience-card story-enter">${header(entry, locale, "h4")}${metrics(field(entry, "metrics", locale), locale)}</article>`,
+      )
+      .join("")}</div>`;
+    const extras = (module.timeline || []).filter((entry) => !companies.some((company) => field(entry, "title", "en").startsWith(company)));
+    if (extras.length) {
+      view += `<section class="experience-extras"><h4>${h(copy.alsoLabel)}</h4>${extras
+        .map((entry) => `<article><small>${h(field(entry, "period", locale))}</small><b>${h(field(entry, "title", locale))}</b><span>${h(field(entry, "text", locale))}</span></article>`)
+        .join("")}</section>`;
     }
   } else {
-    if (module.timeline?.length) {
-      view = `<details class="career-fold"><summary>${h(copy.careerTimeline)} ＋</summary><div class="career-timeline">${module.timeline.map((entry) => `<article><small>${h(field(entry, "period", locale))}</small><h4>${h(field(entry, "title", locale))}</h4><p>${h(field(entry, "text", locale))}</p></article>`).join("")}</div></details>`;
-    }
-    if (module.items.length > 1) {
-      view += choices(module.items.map((entry) => `${h(field(entry, "title", locale))}${entry.status === "in-progress" ? ` <i class="choice-flag">${h(copy.statusInProgress)}</i>` : ""}`), "item", state.item, locale);
-    }
-    view += `<div class="${module.kind === "research" ? "journal-cover" : "project-cover"}"><div>${badge(item, locale)}<span class="tiny-label">${h(field(item, "kicker", locale))}</span><h3>${h(field(item, "title", locale))}</h3><p>${h(field(item, "summary", locale))}</p>${metrics(field(item, "metrics", locale), locale)}</div></div>`;
-    view += choices(
-      chapters.map((chapter, index) => `<b>${String(index + 1).padStart(2, "0")}</b>${h(field(chapter, "title", locale))}`),
-      "chapter",
-      state.chapter,
-      locale,
-      "step-path",
-    );
+    if (module.items.length > 1) view += groupedChoices(module.items, state.item, locale);
+    view += `<div class="project-cover case-header">${badge(item, locale)}${header(item, locale)}${metrics(field(item, "metrics", locale), locale)}</div>`;
+    view += mediaGrid(item, locale);
+    view += `<div class="paper-links">${links(field(item, "links", locale), locale)}</div>`;
     if (chapters.length) {
-      const chapter = chapters[state.chapter];
-      const isLast = state.chapter === chapters.length - 1;
-      view += `<article class="${module.kind === "research" ? "research-leaf" : "case-step"} story-enter"><span class="tiny-label">${h(copy.chapter)} ${state.chapter + 1} / ${chapters.length}</span><h3>${h(field(chapter, "title", locale))}</h3><p>${h(field(chapter, "text", locale))}</p></article><div class="case-footer"><span>${state.chapter + 1} / ${chapters.length}</span>${!isLast ? `<button data-next>${h(copy.next)} →</button>` : `<span>✓ ${h(copy.finished)}</span>`}</div>`;
-      const demoUrl = safeUrl(chapter.embedUrl);
-      if (demoUrl) {
-        view += `<section class="embedded-demo" data-demo-stage aria-label="${h(field(chapter, "title", locale))}"><div class="demo-toolbar"><span>${h(locale === "zh" ? "可操作原型 · 脱敏数据" : "Interactive prototype · Anonymized data")}</span><div><button type="button" data-embed-fullscreen>${h(copy.fullscreenDemo)}</button><a href="${h(demoUrl)}" target="_blank" rel="noopener noreferrer">${h(copy.openDemo)} ↗</a></div></div><iframe src="${h(demoUrl)}" title="${h(copy.demoFrameTitle)}" loading="lazy" allow="fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></section>`;
-      }
+      view += `<div class="gar-row story-enter">${chapters
+        .map((chapter) => `<article><span class="tiny-label">${h(field(chapter, "title", locale))}</span><p>${h(field(chapter, "text", locale))}</p></article>`)
+        .join("")}</div>`;
     }
-    view += mediaGrid(item, locale) + crossLink(item, locale);
-    view += `${picture(item, "award-photo", locale)}<div class="paper-links">${links(field(item, "links", locale), locale)}</div>`;
+    view += crossLink(item, locale);
   }
 
   const reflection = field(item, "reflection", locale);
@@ -123,7 +132,6 @@ export function mountExhibit(host, id, locale = "en") {
   host.innerHTML =
     intro +
     view +
-    fold(copy.reflection, reflection) +
     (note ? `<p class="source-note">${h(note)}</p>` : "") +
     (contactLinks ? `<div class="conversation-card"><b>${h(locale === "zh" ? `继续了解${profile.nameZh || profile.name}` : `More about ${profile.name}`)}</b><div class="project-contact-links">${contactLinks}</div></div>` : "");
 }

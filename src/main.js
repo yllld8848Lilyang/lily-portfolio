@@ -58,7 +58,7 @@ function renderNavigation() {
   const categoryNav = $("category-nav");
   const mapSites = $("map-sites");
   const welcomeNav = $("welcome-nav");
-  for (const element of [campLabels, categoryNav, mapSites, welcomeNav]) element.replaceChildren();
+  for (const element of [campLabels, categoryNav, mapSites, welcomeNav, $("area-tabs")]) element.replaceChildren();
 
   categories.forEach((category, index) => {
     const name = text(category, "name");
@@ -81,6 +81,11 @@ function renderNavigation() {
     quick.dataset.camp = index;
     quick.innerHTML = `<span>${category.number}</span><b>${escapeHTML(name)}</b><i>↗</i>`;
     welcomeNav.append(quick);
+
+    const tab = document.createElement("button");
+    tab.dataset.camp = index;
+    tab.innerHTML = `<span>${category.number}</span>${escapeHTML(name)}`;
+    $("area-tabs").append(tab);
 
     const dot = document.createElement("button");
     dot.className = "map-site";
@@ -161,7 +166,7 @@ function begin() {
 function closeWork() {
   active = -1;
   $("work").hidden = true;
-  document.body.classList.remove("panel-open");
+  document.body.classList.remove("panel-open", "diving");
   document.querySelectorAll("#category-nav button").forEach((button) => button.classList.remove("active"));
 }
 
@@ -172,7 +177,7 @@ function openWork(index) {
   active = index;
   visited.add(index);
   $("work").hidden = false;
-  document.body.classList.add("panel-open");
+  document.body.classList.add("panel-open", "diving");
   $("panel-number").textContent = category.number;
   $("panel-english").textContent = text(category, "english");
   $("panel-category").textContent = `${COPY[locale].fieldNotes} / ${category.number}`;
@@ -188,6 +193,11 @@ function openWork(index) {
 
 function navigate(index) {
   if (!categories[index]) return;
+  if (document.body.classList.contains("diving")) {
+    island?.travelTo(index);
+    openWork(index);
+    return;
+  }
   begin();
   closeWork();
   if (webglFailed) {
@@ -217,6 +227,33 @@ $("language-toggle").addEventListener("click", () => {
 
 $("explore").addEventListener("click", begin);
 $("close-work").addEventListener("click", closeWork);
+$("back-island").addEventListener("click", closeWork);
+let surfacePull = 0;
+$("work").addEventListener(
+  "wheel",
+  (event) => {
+    if ($("work").scrollTop > 0 || event.deltaY >= 0) {
+      surfacePull = 0;
+      return;
+    }
+    surfacePull += -event.deltaY;
+    if (surfacePull > 260) {
+      surfacePull = 0;
+      closeWork();
+    }
+  },
+  { passive: true },
+);
+let touchStartY = null;
+$("work").addEventListener("touchstart", (event) => (touchStartY = $("work").scrollTop <= 0 ? event.touches[0].clientY : null), { passive: true });
+$("work").addEventListener(
+  "touchend",
+  (event) => {
+    if (touchStartY !== null && event.changedTouches[0].clientY - touchStartY > 120) closeWork();
+    touchStartY = null;
+  },
+  { passive: true },
+);
 $("continue").addEventListener("click", closeWork);
 $("overview").addEventListener("click", () => {
   closeWork();

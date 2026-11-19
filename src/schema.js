@@ -1,5 +1,5 @@
 const kinds = new Set(['gallery','awards','research','projects']);
-const statuses = new Set(['live','in-progress']);
+const statuses = new Set(['live','in-progress','coming-soon']);
 const assetPath = /^\/assets\/[a-zA-Z0-9_.-]+$/;
 const slots = [
  {position:[-6.7,3.4],arrival:[-5.4,4.9],color:'#e99364'},

@@ -1613,3 +1613,162 @@ body:not(.exploring) .walk-status {
   color: #789385;
   margin: 6px 0 0;
 }
+
+/* ===== Deep-sea panel: the island rises to the top, the story opens below ===== */
+#world,
+.edge-light {
+  transition: transform 0.75s cubic-bezier(0.22, 0.8, 0.24, 1);
+}
+body.diving #world,
+body.diving .edge-light {
+  transform: translateY(-30vh);
+}
+body.diving #camp-labels,
+body.diving .island-tools,
+body.diving .bottom-bar,
+body.diving .walk-status,
+body.diving #toast,
+body.diving .welcome {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+#work.work-panel {
+  position: fixed;
+  top: 22vh;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: auto;
+  max-width: none;
+  height: auto;
+  max-height: none;
+  border: 0;
+  border-radius: 34px 34px 0 0;
+  background:
+    radial-gradient(120% 60% at 50% 0%, #6fc3cf55 0%, transparent 60%),
+    linear-gradient(180deg, #2f8e9b 0%, #1d6273 9%, #123f4f 38%, #0b2a37 100%);
+  box-shadow: 0 -18px 60px #0b2a3740;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 0 20px 90px;
+  z-index: 8;
+  animation: diveIn 0.75s cubic-bezier(0.22, 0.8, 0.24, 1);
+  scrollbar-color: #5f9aa5 transparent;
+}
+body[data-theme="desert"] #work.work-panel {
+  background:
+    radial-gradient(120% 60% at 50% 0%, #e7c58f55 0%, transparent 60%),
+    linear-gradient(180deg, #4e9aa3 0%, #2a6875 9%, #17414f 38%, #0d2a36 100%);
+}
+body[data-theme="ocean"] #work.work-panel {
+  background:
+    radial-gradient(120% 60% at 50% 0%, #8fb4e055 0%, transparent 60%),
+    linear-gradient(180deg, #3d6fa1 0%, #284f80 9%, #182f57 38%, #0d1a36 100%);
+}
+@keyframes diveIn {
+  from {
+    transform: translateY(70vh);
+    opacity: 0.4;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+#work .close-button {
+  display: none;
+}
+.deep-top {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  max-width: 1020px;
+  margin: 0 auto;
+  padding: 12px 20px;
+  background: #1a5868e8;
+  border-radius: 0 0 20px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  backdrop-filter: blur(6px);
+}
+.back-island {
+  background: #ffffff1f;
+  color: #eaf6f4;
+  border: 1px solid #ffffff38;
+  border-radius: 999px;
+  padding: 9px 16px;
+  font-size: 13px;
+}
+.back-island:hover {
+  background: #ffffff33;
+}
+.area-tabs {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.area-tabs button {
+  background: transparent;
+  color: #cfe7e6;
+  border-radius: 999px;
+  padding: 9px 14px;
+  font-size: 13px;
+}
+.area-tabs button span {
+  opacity: 0.6;
+  margin-right: 6px;
+  font-family: Georgia, serif;
+}
+.area-tabs button.active {
+  background: #fffcf3;
+  color: #1d4a46;
+}
+#work .panel-scene {
+  max-width: 980px;
+  margin: 6px auto 0;
+  border-radius: 22px 22px 0 0;
+}
+#work .panel-body {
+  max-width: 980px;
+  margin: 0 auto;
+  background: #fffcf3;
+  border-radius: 0 0 22px 22px;
+  padding: 34px 44px 36px;
+  zoom: 1.32;
+}
+#work .panel-scene {
+  zoom: 1.32;
+  max-width: calc(980px / 1.32);
+}
+#work .panel-body {
+  max-width: calc(980px / 1.32);
+}
+#work #continue {
+  display: none;
+}
+@media (max-width: 760px) {
+  #work.work-panel {
+    top: 26vh;
+    padding: 0 10px 80px;
+    border-radius: 24px 24px 0 0;
+  }
+  #work .panel-body,
+  #work .panel-scene {
+    zoom: 1.08;
+  }
+  #work .panel-body {
+    padding: 24px 20px 28px;
+  }
+  .area-tabs button {
+    padding: 7px 10px;
+    font-size: 12px;
+  }
+}
+#work-description:empty { display: none; }
+
+#work .ex-metrics {
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+}

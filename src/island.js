@@ -917,7 +917,7 @@ export function createIsland(
     const offsetTargetX =
       innerWidth > 1100
         ? document.body.classList.contains("panel-open")
-          ? 0.08
+          ? 0
           : !document.body.classList.contains("exploring")
             ? -0.08
             : 0

@@ -1052,3 +1052,120 @@ body[data-theme="ocean"] .work-panel .panel-scene {
 .cross-link:focus-visible {
   background: #3f77611c;
 }
+
+/* ===== Case header: company (industry) / role · period ===== */
+.case-header {
+  padding: 22px 24px 18px;
+}
+.case-id h3,
+.case-id h4 {
+  font-family: "Songti SC", Georgia, serif;
+  font-weight: 400;
+  margin: 6px 0 2px;
+}
+.case-id h3 {
+  font-size: 26px;
+}
+.case-id h4 {
+  font-size: 18px;
+}
+.industry-tag {
+  display: inline-block;
+  font-size: 10px;
+  letter-spacing: 0.4px;
+  color: var(--accent);
+  background: #3f77611a;
+  border-radius: 999px;
+  padding: 3px 9px;
+}
+.role-line {
+  font-size: 12px;
+  font-weight: 600;
+  color: #3d5a52;
+  margin: 4px 0 0;
+}
+.case-summary {
+  font-size: 12.5px;
+  line-height: 1.7;
+  color: #4f665f;
+  margin: 10px 0 4px;
+}
+.choice-groups {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 10px 14px;
+  margin: 0 0 16px;
+}
+.choice-group small {
+  display: block;
+  font-size: 9px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--soft);
+  margin: 0 0 6px;
+}
+.choice-group .choice-strip {
+  margin: 0;
+}
+.gar-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 12px;
+  margin: 16px 0 6px;
+}
+.gar-row article {
+  background: #f3f1e6;
+  border-radius: 12px;
+  padding: 14px 16px;
+}
+.gar-row p {
+  font-size: 12px;
+  line-height: 1.65;
+  margin: 6px 0 0;
+  color: #3f564f;
+}
+.media-grid {
+  margin-top: 16px;
+}
+.experience-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+}
+.experience-card {
+  background: var(--paper-deep);
+  border-radius: 14px;
+  padding: 16px 18px;
+}
+.experience-card .case-summary {
+  font-size: 11.5px;
+}
+.experience-extras {
+  margin-top: 18px;
+}
+.experience-extras h4 {
+  font-size: 11px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--soft);
+  margin: 0 0 8px;
+}
+.experience-extras article {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 2px 12px;
+  padding: 8px 0;
+  border-top: 1px solid #6c7b6217;
+  font-size: 12px;
+}
+.experience-extras small {
+  grid-row: span 2;
+  color: var(--soft);
+}
+.experience-extras span {
+  color: #5d7068;
+}
+.status-badge.is-coming-soon {
+  background: #6fa8c626;
+  color: #2f6a86;
+}
