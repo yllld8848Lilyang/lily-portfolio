@@ -29,6 +29,7 @@ export function normalizePortfolio(data) {
     if (!['image','video'].includes(media.type)) throw new Error('Media type must be image or video');
     if (!assetPath.test(media.src) || (media.poster && !assetPath.test(media.poster))) throw new Error('Media must be staged under /assets/');
    }
+   if (item.logo && !assetPath.test(item.logo)) throw new Error('Logos must be staged under /assets/');
    if (item.status && !statuses.has(item.status)) throw new Error('Unknown item status');
    if (['research','projects'].includes(m.kind) && !item.chapters?.length) throw new Error('Research and projects need chapters');
   }

@@ -145,8 +145,18 @@ function applyLocale() {
     $("work-intro").textContent = text(category, "intro");
     $("work-description").textContent = text(category, "description");
     mountExhibit($("work-sections"), category.id, locale);
+    renderBanner(category);
   }
   setStatus(active >= 0 ? "arrived" : started ? "overview" : "idle", active);
+}
+
+function renderBanner(category) {
+  const art = $("panel-art")?.innerHTML || "";
+  const stats = (text(category, "metrics") || category.metrics || [])
+    .map((metric) => `<div><strong>${escapeHTML(metric.value)}</strong><span>${escapeHTML(text(metric, "label"))}</span></div>`)
+    .join("");
+  $("deep-banner").innerHTML = `<div class="banner-copy"><p class="banner-kicker"><span>${category.number}</span>${escapeHTML(text(category, "english"))}</p><h2>${escapeHTML(text(category, "name"))}</h2><p>${escapeHTML(text(category, "intro"))}</p></div>${stats ? `<div class="banner-stats">${stats}</div>` : ""}<svg class="banner-art" viewBox="0 0 240 120" fill="none" aria-hidden="true">${art}</svg>`;
+  $("work").dataset.area = category.id;
 }
 
 function toast(message) {
@@ -163,10 +173,21 @@ function begin() {
   setStatus("idle");
 }
 
+let ebbTimer;
 function closeWork() {
   active = -1;
-  $("work").hidden = true;
-  document.body.classList.remove("panel-open", "diving");
+  clearTimeout(ebbTimer);
+  const panel = $("work");
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  document.body.classList.remove("diving");
+  if (!panel.hidden && !reduce) {
+    panel.classList.add("ebbing");
+    ebbTimer = setTimeout(() => {
+      panel.hidden = true;
+      panel.classList.remove("ebbing");
+    }, 620);
+  } else panel.hidden = true;
+  document.body.classList.remove("panel-open");
   document.querySelectorAll("#category-nav button").forEach((button) => button.classList.remove("active"));
 }
 
@@ -176,6 +197,8 @@ function openWork(index) {
   begin();
   active = index;
   visited.add(index);
+  clearTimeout(ebbTimer);
+  $("work").classList.remove("ebbing");
   $("work").hidden = false;
   document.body.classList.add("panel-open", "diving");
   $("panel-number").textContent = category.number;
@@ -185,6 +208,8 @@ function openWork(index) {
   $("work-intro").textContent = text(category, "intro");
   $("work-description").textContent = text(category, "description");
   mountExhibit($("work-sections"), category.id, locale);
+  renderBanner(category);
+  $("work").classList.remove("ebbing");
   $("work").scrollTop = 0;
   $("visited-count").textContent = String(visited.size).padStart(2, "0");
   renderNavigation();
@@ -348,12 +373,17 @@ try {
       $("loading").classList.add("loaded");
       setTimeout(() => ($("loading").hidden = true), 800);
     },
-    onArrive: openWork,
+    onArrive: (index) => {
+      if (document.body.classList.contains("diving") && index === active) return;
+      openWork(index);
+    },
     onLeave: () => {
+      if (document.body.classList.contains("diving")) return;
       if (active >= 0) closeWork();
     },
     onMove: () => {
       begin();
+      if (document.body.classList.contains("diving")) return;
       closeWork();
     },
     onBoundary: () => toast(COPY[locale].boundary),

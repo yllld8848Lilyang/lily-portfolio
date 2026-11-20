@@ -50,13 +50,17 @@ test('Case headers separate company, industry and role; samples come before the 
   mountExhibit(host,'marketing-growth','en');
   const html=host.innerHTML;
   assert.match(html,/class="industry-tag">Fire &amp; car safety products/);
-  assert.match(html,/<h3>Starshine Group<\/h3>/);
+  assert.match(html,/logo-jewel\.png/);
+  assert.match(html,/class="co-switch"/);
+  assert.match(html,/<h3>Jewel Commercial Group<\/h3>/);
   assert.match(html,/class="role-line">E-commerce New Media Operations Intern/);
-  assert.ok(html.indexOf('media-grid')<html.indexOf('gar-row'));
+  assert.ok(html.indexOf('media-mosaic')<html.indexOf('dive-layer'));
+  assert.ok(html.indexOf('ex-metrics')<html.indexOf('gar-row'));
   assert.match(html,/<video[^>]+controls/);
-  assert.match(html,/Content &amp; Social/);
+  assert.match(html,/−10 m/);
   mountExhibit(host,'marketing-growth','zh');
   assert.match(host.innerHTML,/星耀集团/);
+  assert.match(host.innerHTML,/目标 · 动作 · 结果/);
   assert.match(host.innerHTML,/已做脱敏处理/);
  } finally {delete globalThis.document;}
 });
@@ -69,9 +73,23 @@ test('InsightLoop shows screenshots and opens the demo in a new tab instead of a
   mountExhibit(host,'ai-projects','en');
   assert.match(host.innerHTML,/<h3>InsightLoop<\/h3>/);
   assert.match(host.innerHTML,/Built at Joy Media to gather feedback for Small-U/);
-  assert.match(host.innerHTML,/Open the full demo/);
+  assert.match(host.innerHTML,/class="try-sticker"/);
+  assert.match(host.innerHTML,/Try it live/);
   assert.doesNotMatch(host.innerHTML,/<iframe/);
   mountExhibit(host,'ai-projects','zh');
   assert.match(host.innerHTML,/自主开发，任何产品团队都能使用/);
+ } finally {delete globalThis.document;}
+});
+
+test('Experience is a voyage timeline ending at the next port, with the research showcase',async()=>{
+ stubDocument();
+ try {
+  const {mountExhibit}=await import('../src/exhibits.js');
+  const host={innerHTML:''};
+  mountExhibit(host,'experience','en');
+  assert.match(host.innerHTML,/class="voyage"/);
+  assert.equal((host.innerHTML.match(/voyage-stop/g)||[]).length,7);
+  assert.match(host.innerHTML,/Next port → 2027/);
+  assert.match(host.innerHTML,/competition-research\.jpg/);
  } finally {delete globalThis.document;}
 });
