@@ -101,6 +101,11 @@ function renderNavigation() {
     button.classList.toggle("visited", visited.has(index));
     button.classList.toggle("active", index === active);
   });
+  const tabs = $("area-tabs");
+  const current = tabs.querySelector(".active");
+  if (current && tabs.scrollWidth > tabs.clientWidth) {
+    tabs.scrollTo({ left: current.offsetLeft - (tabs.clientWidth - current.offsetWidth) / 2, behavior: "smooth" });
+  }
 }
 
 function applyLocale() {

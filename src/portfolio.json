@@ -397,7 +397,21 @@
               "textZh": "192 名新用户，参与率 +10%，200+ 篇 UGC，短视频播放 50 万+。"
             }
           ],
-          "logo": "/assets/logo-zeekr.png"
+          "logo": "/assets/logo-zeekr.png",
+          "media": [
+            {
+              "type": "image",
+              "src": "/assets/zeekr-lynk-night-1.jpg",
+              "caption": "Lynk & Co Autumn New Owner Night · owner training session",
+              "captionZh": "领克“秋日新车主之夜”现场 · 车主培训环节"
+            },
+            {
+              "type": "image",
+              "src": "/assets/zeekr-lynk-night-2.jpg",
+              "caption": "Lynk & Co Autumn New Owner Night · owner sharing session",
+              "captionZh": "领克“秋日新车主之夜”现场 · 车主分享环节"
+            }
+          ]
         },
         {
           "group": "Data & Insight",
@@ -446,9 +460,45 @@
               "textZh": "目标人群转化率提升约 30pp；SQL 复盘报告成为后续活动的参考基线。"
             }
           ],
-          "sourceNote": "Company figures are confidential; only relative results are shown.",
-          "sourceNoteZh": "公司数据保密，仅展示相对结果。",
-          "logo": "/assets/logo-didi.png"
+          "sourceNote": "Campaign pages shown are public; company figures are confidential, so only relative results are shown.",
+          "sourceNoteZh": "展示的均为公开活动页面；公司数据保密，仅展示相对结果。",
+          "logo": "/assets/logo-didi.png",
+          "media": [
+            {
+              "type": "image",
+              "src": "/assets/didi-app-home.jpg",
+              "caption": "Xiaoju Charging app home · campaign entry points (public page)",
+              "captionZh": "小桔充电 App 首页 · 活动入口（公开页面）",
+              "size": "tall"
+            },
+            {
+              "type": "image",
+              "src": "/assets/didi-member-alipay.jpg",
+              "caption": "Membership offer page (public campaign page)",
+              "captionZh": "会员权益活动页（公开页面）",
+              "size": "tall"
+            },
+            {
+              "type": "image",
+              "src": "/assets/didi-vip-offer.jpg",
+              "caption": "Member coupon offer",
+              "captionZh": "会员券包活动页",
+              "size": "tall"
+            },
+            {
+              "type": "image",
+              "src": "/assets/didi-flash-sale.jpg",
+              "caption": "Flash-sale charging coupons",
+              "captionZh": "限时秒杀充电券"
+            },
+            {
+              "type": "image",
+              "src": "/assets/didi-lucky-draw.jpg",
+              "caption": "Lucky-draw campaign page",
+              "captionZh": "抽奖活动页",
+              "size": "wide"
+            }
+          ]
         },
         {
           "group": "Data & Insight",
@@ -508,7 +558,23 @@
             "label": "See InsightLoop, the feedback tool I built for this work",
             "labelZh": "查看我为这段工作开发的反馈工具 InsightLoop"
           },
-          "logo": "/assets/logo-joymedia.png"
+          "logo": "/assets/logo-joymedia.png",
+          "media": [
+            {
+              "type": "image",
+              "src": "/assets/joymedia-smallu-home.jpg",
+              "caption": "Small-U AI toolkit · home (anonymised)",
+              "captionZh": "小U AI 工具台首页（已脱敏）"
+            },
+            {
+              "type": "image",
+              "src": "/assets/joymedia-smallu-poster.jpg",
+              "caption": "Small-U AI toolkit · poster generator (anonymised)",
+              "captionZh": "小U AI 工具台 · 海报生成页（已脱敏）"
+            }
+          ],
+          "sourceNote": "Internal tool screenshots, blurred and anonymised; shown for job applications only.",
+          "sourceNoteZh": "内部工具截图，已做模糊与脱敏处理，仅供求职使用。"
         }
       ]
     },
@@ -674,12 +740,12 @@
           "periodZh": "2023.8–2024.6",
           "title": "National E-Commerce Challenge (student competition)",
           "titleZh": "全国大学生电子商务“三创赛”",
-          "text": "Team Lead · Provincial Third Prize",
-          "textZh": "团队负责人 · 省三等奖",
+          "text": "Team Lead · Provincial Third Prize · 200 surveys issued, 173 valid (86.5%), 128-page project plan",
+          "textZh": "团队负责人 · 省三等奖 · 发放问卷 200 份，有效回收 173 份（回收率 86.5%），完成 128 页项目书",
           "metric": {
-            "value": "3rd",
-            "label": "provincial prize",
-            "labelZh": "省三等奖"
+            "value": "173",
+            "label": "valid survey responses",
+            "labelZh": "份有效问卷"
           }
         },
         {

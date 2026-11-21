@@ -1737,25 +1737,102 @@ body[data-theme="desert"] .tide span:first-child {
 #work #continue {
   display: none;
 }
+/* water surface the area tabs float on: drawn waves, foam and bubbles */
 .deep-top {
+  --water-top: #43a7b2;
+  --water-low: #2b8a99;
+  --water-back: #8fdbe2;
   position: sticky;
   top: 0;
   z-index: 5;
-  max-width: 1240px;
-  margin: 0 auto;
-  padding: 12px 18px;
+  margin: 0 -24px;
+  padding: 14px max(24px, calc((100% - 1240px) / 2)) 34px;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 14px;
   flex-wrap: wrap;
-  background: #1a5868e6;
-  backdrop-filter: blur(8px);
-  border-radius: 0 0 18px 18px;
+  isolation: isolate;
+}
+body[data-theme="ocean"] .deep-top {
+  --water-top: #5285b8;
+  --water-low: #36659a;
+  --water-back: #a6c8ee;
+}
+body[data-theme="desert"] .deep-top {
+  --water-top: #62adb3;
+  --water-low: #3b8391;
+  --water-back: #a8e0dc;
+}
+.wave-band,
+.wave-band i {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.wave-band {
+  z-index: -1;
+}
+.wave-band .w-back {
+  background: var(--water-back);
+  opacity: 0.55;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 34'%3E%3Cpath d='M0 18 C60 30 165 30 225 18 S390 6 450 18 S615 30 675 18 S840 6 900 18 V0 H0Z' fill='%23000'/%3E%3C/svg%3E") 0 100% / 900px 34px repeat-x, linear-gradient(#000, #000) 0 0 / 100% calc(100% - 33px) no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 34'%3E%3Cpath d='M0 18 C60 30 165 30 225 18 S390 6 450 18 S615 30 675 18 S840 6 900 18 V0 H0Z' fill='%23000'/%3E%3C/svg%3E") 0 100% / 900px 34px repeat-x, linear-gradient(#000, #000) 0 0 / 100% calc(100% - 33px) no-repeat;
+  animation: waveMaskBack 16s linear infinite;
+}
+.wave-band .w-front {
+  bottom: 9px;
+  background: linear-gradient(180deg, var(--water-top), var(--water-low));
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 28'%3E%3Cpath d='M0 14 C40 24 120 24 160 14 S280 4 320 14 S440 24 480 14 S600 4 640 14 V0 H0Z' fill='%23000'/%3E%3C/svg%3E") 0 100% / 640px 28px repeat-x, linear-gradient(#000, #000) 0 0 / 100% calc(100% - 27px) no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 28'%3E%3Cpath d='M0 14 C40 24 120 24 160 14 S280 4 320 14 S440 24 480 14 S600 4 640 14 V0 H0Z' fill='%23000'/%3E%3C/svg%3E") 0 100% / 640px 28px repeat-x, linear-gradient(#000, #000) 0 0 / 100% calc(100% - 27px) no-repeat;
+  animation: waveMaskFront 11s linear infinite;
+}
+.wave-band .w-foam {
+  top: auto;
+  bottom: 9px;
+  height: 28px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 28'%3E%3Cpath d='M0 14 C40 24 120 24 160 14 S280 4 320 14 S440 24 480 14 S600 4 640 14' fill='none' stroke='%23fff' stroke-opacity='.75' stroke-width='2.4' stroke-linecap='round'/%3E%3Cpath d='M110 21 q20 4 40 -2 M430 21 q20 4 40 -2 M282 8 q14 -3 26 1' fill='none' stroke='%23fff' stroke-opacity='.55' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E") 0 0 / 640px 28px repeat-x;
+  animation: waveDrift 11s linear infinite;
+}
+.wave-band .w-bubbles {
+  background:
+    radial-gradient(circle at 50% 50%, transparent 2.2px, #ffffffaa 2.6px, transparent 3.4px) 8% 70% / 14px 14px no-repeat,
+    radial-gradient(circle at 50% 50%, #ffffffcc 1.6px, transparent 2.2px) 13% 40% / 8px 8px no-repeat,
+    radial-gradient(circle at 50% 50%, transparent 3px, #ffffff99 3.5px, transparent 4.4px) 31% 64% / 18px 18px no-repeat,
+    radial-gradient(circle at 50% 50%, #ffffffb3 1.4px, transparent 2px) 47% 26% / 8px 8px no-repeat,
+    radial-gradient(circle at 50% 50%, transparent 2.4px, #ffffffa6 2.9px, transparent 3.7px) 66% 72% / 14px 14px no-repeat,
+    radial-gradient(circle at 50% 50%, #ffffffcc 1.6px, transparent 2.2px) 79% 34% / 8px 8px no-repeat,
+    radial-gradient(circle at 50% 50%, transparent 3px, #ffffff8c 3.5px, transparent 4.4px) 92% 60% / 18px 18px no-repeat;
+  bottom: 12px;
+  animation: bubblesRise 7s ease-in-out infinite;
+}
+@keyframes waveMaskFront {
+  from { -webkit-mask-position: 0 100%, 0 0; mask-position: 0 100%, 0 0; }
+  to { -webkit-mask-position: 640px 100%, 0 0; mask-position: 640px 100%, 0 0; }
+}
+@keyframes waveMaskBack {
+  from { -webkit-mask-position: 0 100%, 0 0; mask-position: 0 100%, 0 0; }
+  to { -webkit-mask-position: -900px 100%, 0 0; mask-position: -900px 100%, 0 0; }
+}
+@keyframes bubblesRise {
+  0% { transform: translateY(4px); opacity: 0.2; }
+  45% { opacity: 1; }
+  100% { transform: translateY(-8px); opacity: 0; }
+}
+@keyframes tabsBob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-2px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .wave-band i, .area-tabs, .back-island { animation: none !important; }
 }
 .back-island {
-  background: #ffffff1f;
-  color: #eaf6f4;
-  border: 1px solid #ffffff38;
+  background: #ffffff24;
+  color: #f4fbfb;
+  border: 1px solid #ffffff59;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 2px 10px #0b3a4a26;
+  animation: tabsBob 5s ease-in-out infinite;
   border-radius: 999px;
   padding: 9px 16px;
   font-size: 13px;
@@ -1767,10 +1844,18 @@ body[data-theme="desert"] .tide span:first-child {
   display: flex;
   gap: 6px;
   flex-wrap: wrap;
+  justify-content: center;
+  padding: 4px;
+  border-radius: 999px;
+  background: #ffffff1c;
+  border: 1px solid #ffffff40;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 2px 12px #0b3a4a22;
+  animation: tabsBob 5s ease-in-out 0.6s infinite;
 }
 .area-tabs button {
   background: transparent;
-  color: #cfe7e6;
+  color: #f0fafa;
   border-radius: 999px;
   padding: 9px 14px;
   font-size: 13px;
@@ -1780,9 +1865,13 @@ body[data-theme="desert"] .tide span:first-child {
   margin-right: 6px;
   font-family: Georgia, serif;
 }
+.area-tabs button:hover {
+  background: #ffffff26;
+}
 .area-tabs button.active {
   background: #fffcf3;
   color: #1d4a46;
+  box-shadow: 0 2px 8px #0b3a4a33;
 }
 /* banner: area number + title + headline numbers, sitting right under the tabs */
 .deep-banner {
@@ -1889,6 +1978,21 @@ body[data-theme="desert"] .tide span:first-child {
   }
   .tide {
     margin: 0 -10px;
+  }
+  .deep-top {
+    margin: 0 -10px;
+    padding: 10px 10px 30px;
+    gap: 8px;
+  }
+  .area-tabs {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    max-width: 100%;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .area-tabs button {
+    flex: 0 0 auto;
   }
   .deep-banner {
     grid-template-columns: 1fr;
