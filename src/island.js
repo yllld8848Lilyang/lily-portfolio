@@ -443,8 +443,8 @@ export function createIsland(
     }
     root.visible = id === "forest";
   }
-  const beacons = [],
-    labels = [...document.querySelectorAll(".camp-label")];
+  const beacons = [];
+  let labels = [...document.querySelectorAll(".camp-label")];
   const sparkGeo = new T.BufferGeometry(),
     sparkPositions = [];
   for (let i = 0; i < 180; i++)
@@ -917,7 +917,7 @@ export function createIsland(
     const offsetTargetX =
       innerWidth > 1100
         ? document.body.classList.contains("panel-open")
-          ? 0.08
+          ? 0
           : !document.body.classList.contains("exploring")
             ? -0.08
             : 0
@@ -946,6 +946,8 @@ export function createIsland(
     lakeRings.forEach((r, i) => {
       r.scale.setScalar(reduced.matches ? 1 : 1 + Math.sin(t * 0.7 + i) * 0.12);
     });
+    if (labels.length && !labels[0].isConnected)
+      labels = [...document.querySelectorAll(".camp-label")];
     beacons.forEach((b, i) => {
       let pulse = reduced.matches ? 1 : 1 + Math.sin(t * 2 + i) * 0.045;
       b.ring.scale.setScalar(pulse);

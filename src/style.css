@@ -1586,3 +1586,429 @@ body:not(.exploring) .walk-status {
   order: 1;
   opacity: 0.88;
 }
+
+/* Contact row and disclaimer on the welcome card */
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 14px 0 0;
+}
+.contact-links a {
+  font-size: 11px;
+  letter-spacing: 0.3px;
+  color: var(--accent);
+  text-decoration: none;
+  border: 1px solid var(--line);
+  background: #ffffff8c;
+  border-radius: 999px;
+  padding: 6px 12px;
+}
+.contact-links a:hover,
+.contact-links a:focus-visible {
+  border-color: var(--accent);
+}
+.welcome-disclaimer {
+  font-size: 9px;
+  color: #789385;
+  margin: 6px 0 0;
+}
+
+/* ===== Deep-sea panel: the tide rises over the island ===== */
+#world,
+.edge-light {
+  transition: transform 0.9s cubic-bezier(0.22, 0.8, 0.24, 1);
+}
+body.diving #world,
+body.diving .edge-light {
+  transform: translateY(-38vh);
+}
+body.diving #camp-labels,
+body.diving .island-tools,
+body.diving .bottom-bar,
+body.diving .walk-status,
+body.diving #toast,
+body.diving .welcome {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+#work.work-panel {
+  position: fixed;
+  top: 13vh;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: auto;
+  max-width: none;
+  height: auto;
+  max-height: none;
+  border: 0;
+  border-radius: 0;
+  background:
+    radial-gradient(60% 40% at 20% 8%, #9fe3ea33 0%, transparent 60%),
+    radial-gradient(50% 35% at 85% 18%, #7fd0dc26 0%, transparent 60%),
+    linear-gradient(180deg, #3a9aa6 0%, #1f6f80 6%, #154a5c 30%, #0d3343 65%, #08222e 100%);
+  background-size: 160% 100%, 140% 100%, 100% 100%;
+  animation:
+    tideIn 1s cubic-bezier(0.2, 0.9, 0.25, 1.04) both,
+    caustics 14s ease-in-out infinite alternate;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  padding: 0 24px 90px;
+  z-index: 8;
+  box-shadow: none;
+  scrollbar-color: #5f9aa5 transparent;
+}
+#work.work-panel.ebbing {
+  animation: tideOut 0.62s cubic-bezier(0.55, 0, 0.75, 0.2) both;
+}
+body[data-theme="desert"] #work.work-panel {
+  background:
+    radial-gradient(60% 40% at 20% 8%, #f3d9a633 0%, transparent 60%),
+    radial-gradient(50% 35% at 85% 18%, #e7c58f26 0%, transparent 60%),
+    linear-gradient(180deg, #5aa3aa 0%, #2f7380 6%, #1b4a58 30%, #11323f 65%, #0a222c 100%);
+}
+body[data-theme="ocean"] #work.work-panel {
+  background:
+    radial-gradient(60% 40% at 20% 8%, #a9c6f033 0%, transparent 60%),
+    radial-gradient(50% 35% at 85% 18%, #8fb4e026 0%, transparent 60%),
+    linear-gradient(180deg, #4a7db0 0%, #2d5a8c 6%, #1c3a66 30%, #122648 65%, #0b1830 100%);
+}
+@keyframes tideIn {
+  0% { transform: translateY(88vh); }
+  70% { transform: translateY(-1.2vh); }
+  100% { transform: translateY(0); }
+}
+@keyframes tideOut {
+  0% { transform: translateY(0); }
+  25% { transform: translateY(-1vh); }
+  100% { transform: translateY(92vh); }
+}
+@keyframes caustics {
+  from { background-position: 0% 0, 100% 0, 0 0; }
+  to { background-position: 100% 0, 0% 0, 0 0; }
+}
+/* the moving wave crest on the tide's edge */
+.tide {
+  position: sticky;
+  top: 0;
+  height: 0;
+  margin: 0 -24px;
+  z-index: 4;
+  pointer-events: none;
+}
+.tide span {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -34px;
+  height: 40px;
+  background-repeat: repeat-x;
+  background-size: 640px 40px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 40'%3E%3Cpath d='M0 22 C80 6 160 6 240 20 S400 36 480 20 S600 6 640 22 V40 H0Z' fill='%233a9aa6'/%3E%3C/svg%3E");
+  animation: waveDrift 9s linear infinite;
+}
+.tide span:last-child {
+  top: -26px;
+  opacity: 0.55;
+  background-size: 520px 34px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 520 34'%3E%3Cpath d='M0 18 C65 4 130 4 195 17 S325 30 390 17 S490 4 520 18 V34 H0Z' fill='%23a9e4ea'/%3E%3C/svg%3E");
+  animation-duration: 13s;
+  animation-direction: reverse;
+}
+body[data-theme="ocean"] .tide span:first-child {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 40'%3E%3Cpath d='M0 22 C80 6 160 6 240 20 S400 36 480 20 S600 6 640 22 V40 H0Z' fill='%234a7db0'/%3E%3C/svg%3E");
+}
+body[data-theme="desert"] .tide span:first-child {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 40'%3E%3Cpath d='M0 22 C80 6 160 6 240 20 S400 36 480 20 S600 6 640 22 V40 H0Z' fill='%235aa3aa'/%3E%3C/svg%3E");
+}
+@keyframes waveDrift {
+  from { background-position-x: 0; }
+  to { background-position-x: 640px; }
+}
+#work .close-button,
+#work .panel-scene,
+#work .panel-body > .eyebrow,
+#work .panel-body > h2,
+#work .work-intro,
+#work #work-description,
+#work #continue {
+  display: none;
+}
+/* water surface the area tabs float on: drawn waves, foam and bubbles */
+.deep-top {
+  --water-top: #43a7b2;
+  --water-low: #2b8a99;
+  --water-back: #8fdbe2;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  margin: 0 -24px;
+  padding: 14px max(24px, calc((100% - 1240px) / 2)) 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  isolation: isolate;
+}
+body[data-theme="ocean"] .deep-top {
+  --water-top: #5285b8;
+  --water-low: #36659a;
+  --water-back: #a6c8ee;
+}
+body[data-theme="desert"] .deep-top {
+  --water-top: #62adb3;
+  --water-low: #3b8391;
+  --water-back: #a8e0dc;
+}
+.wave-band,
+.wave-band i {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.wave-band {
+  z-index: -1;
+}
+.wave-band .w-back {
+  background: var(--water-back);
+  opacity: 0.55;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 34'%3E%3Cpath d='M0 18 C60 30 165 30 225 18 S390 6 450 18 S615 30 675 18 S840 6 900 18 V0 H0Z' fill='%23000'/%3E%3C/svg%3E") 0 100% / 900px 34px repeat-x, linear-gradient(#000, #000) 0 0 / 100% calc(100% - 33px) no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 34'%3E%3Cpath d='M0 18 C60 30 165 30 225 18 S390 6 450 18 S615 30 675 18 S840 6 900 18 V0 H0Z' fill='%23000'/%3E%3C/svg%3E") 0 100% / 900px 34px repeat-x, linear-gradient(#000, #000) 0 0 / 100% calc(100% - 33px) no-repeat;
+  animation: waveMaskBack 16s linear infinite;
+}
+.wave-band .w-front {
+  bottom: 9px;
+  background: linear-gradient(180deg, var(--water-top), var(--water-low));
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 28'%3E%3Cpath d='M0 14 C40 24 120 24 160 14 S280 4 320 14 S440 24 480 14 S600 4 640 14 V0 H0Z' fill='%23000'/%3E%3C/svg%3E") 0 100% / 640px 28px repeat-x, linear-gradient(#000, #000) 0 0 / 100% calc(100% - 27px) no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 28'%3E%3Cpath d='M0 14 C40 24 120 24 160 14 S280 4 320 14 S440 24 480 14 S600 4 640 14 V0 H0Z' fill='%23000'/%3E%3C/svg%3E") 0 100% / 640px 28px repeat-x, linear-gradient(#000, #000) 0 0 / 100% calc(100% - 27px) no-repeat;
+  animation: waveMaskFront 11s linear infinite;
+}
+.wave-band .w-foam {
+  top: auto;
+  bottom: 9px;
+  height: 28px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 28'%3E%3Cpath d='M0 14 C40 24 120 24 160 14 S280 4 320 14 S440 24 480 14 S600 4 640 14' fill='none' stroke='%23fff' stroke-opacity='.75' stroke-width='2.4' stroke-linecap='round'/%3E%3Cpath d='M110 21 q20 4 40 -2 M430 21 q20 4 40 -2 M282 8 q14 -3 26 1' fill='none' stroke='%23fff' stroke-opacity='.55' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E") 0 0 / 640px 28px repeat-x;
+  animation: waveDrift 11s linear infinite;
+}
+.wave-band .w-bubbles {
+  background:
+    radial-gradient(circle at 50% 50%, transparent 2.2px, #ffffffaa 2.6px, transparent 3.4px) 8% 70% / 14px 14px no-repeat,
+    radial-gradient(circle at 50% 50%, #ffffffcc 1.6px, transparent 2.2px) 13% 40% / 8px 8px no-repeat,
+    radial-gradient(circle at 50% 50%, transparent 3px, #ffffff99 3.5px, transparent 4.4px) 31% 64% / 18px 18px no-repeat,
+    radial-gradient(circle at 50% 50%, #ffffffb3 1.4px, transparent 2px) 47% 26% / 8px 8px no-repeat,
+    radial-gradient(circle at 50% 50%, transparent 2.4px, #ffffffa6 2.9px, transparent 3.7px) 66% 72% / 14px 14px no-repeat,
+    radial-gradient(circle at 50% 50%, #ffffffcc 1.6px, transparent 2.2px) 79% 34% / 8px 8px no-repeat,
+    radial-gradient(circle at 50% 50%, transparent 3px, #ffffff8c 3.5px, transparent 4.4px) 92% 60% / 18px 18px no-repeat;
+  bottom: 12px;
+  animation: bubblesRise 7s ease-in-out infinite;
+}
+@keyframes waveMaskFront {
+  from { -webkit-mask-position: 0 100%, 0 0; mask-position: 0 100%, 0 0; }
+  to { -webkit-mask-position: 640px 100%, 0 0; mask-position: 640px 100%, 0 0; }
+}
+@keyframes waveMaskBack {
+  from { -webkit-mask-position: 0 100%, 0 0; mask-position: 0 100%, 0 0; }
+  to { -webkit-mask-position: -900px 100%, 0 0; mask-position: -900px 100%, 0 0; }
+}
+@keyframes bubblesRise {
+  0% { transform: translateY(4px); opacity: 0.2; }
+  45% { opacity: 1; }
+  100% { transform: translateY(-8px); opacity: 0; }
+}
+@keyframes tabsBob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-2px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .wave-band i, .area-tabs, .back-island { animation: none !important; }
+}
+.back-island {
+  background: #ffffff24;
+  color: #f4fbfb;
+  border: 1px solid #ffffff59;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 2px 10px #0b3a4a26;
+  animation: tabsBob 5s ease-in-out infinite;
+  border-radius: 999px;
+  padding: 9px 16px;
+  font-size: 13px;
+}
+.back-island:hover {
+  background: #ffffff33;
+}
+.area-tabs {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 4px;
+  border-radius: 999px;
+  background: #ffffff1c;
+  border: 1px solid #ffffff40;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 2px 12px #0b3a4a22;
+  animation: tabsBob 5s ease-in-out 0.6s infinite;
+}
+.area-tabs button {
+  background: transparent;
+  color: #f0fafa;
+  border-radius: 999px;
+  padding: 9px 14px;
+  font-size: 13px;
+}
+.area-tabs button span {
+  opacity: 0.6;
+  margin-right: 6px;
+  font-family: Georgia, serif;
+}
+.area-tabs button:hover {
+  background: #ffffff26;
+}
+.area-tabs button.active {
+  background: #fffcf3;
+  color: #1d4a46;
+  box-shadow: 0 2px 8px #0b3a4a33;
+}
+/* banner: area number + title + headline numbers, sitting right under the tabs */
+.deep-banner {
+  position: relative;
+  max-width: 1240px;
+  margin: 10px auto 14px;
+  padding: 18px 28px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 18px 28px;
+  border-radius: 20px;
+  background: linear-gradient(120deg, #e6ecda, #f5ecd8);
+  color: #2f5248;
+  overflow: hidden;
+  animation: bannerIn 0.7s 0.25s ease-out both;
+}
+@keyframes bannerIn {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: none; }
+}
+.banner-kicker {
+  margin: 0;
+  font-size: 11px;
+  letter-spacing: 2.4px;
+  color: #6c8070;
+}
+.banner-kicker span {
+  font: italic 30px Georgia, serif;
+  color: #9aa98f;
+  margin-right: 12px;
+  letter-spacing: 0;
+  vertical-align: -4px;
+}
+.deep-banner h2 {
+  font-family: "Songti SC", Georgia, serif;
+  font-weight: 400;
+  font-size: 34px;
+  letter-spacing: 1px;
+  margin: 4px 0 4px;
+  color: #1d4a46;
+}
+.banner-copy > p:last-child {
+  margin: 0;
+  font-size: 14px;
+  color: #577065;
+}
+.banner-stats {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.banner-stats div {
+  background: #fffcf3d9;
+  border-radius: 14px;
+  padding: 10px 12px;
+}
+.banner-stats strong {
+  display: block;
+  font: 28px Georgia, serif;
+  color: #1d4a46;
+}
+.banner-stats span {
+  font-size: 11px;
+  color: #6c8070;
+}
+.banner-art {
+  position: absolute;
+  right: 10px;
+  bottom: -6px;
+  width: 200px;
+  height: 100px;
+  color: #9b997a;
+  opacity: 0.35;
+  pointer-events: none;
+}
+#work .panel-body {
+  max-width: 1240px;
+  margin: 0 auto;
+  background: #fffcf3;
+  border-radius: 22px;
+  padding: 26px 32px 30px;
+  animation: bannerIn 0.7s 0.35s ease-out both;
+}
+#work[data-area="experience"] .panel-body {
+  background: transparent;
+  padding: 10px 0 20px;
+}
+@media (prefers-reduced-motion: reduce) {
+  #work.work-panel,
+  #work.work-panel.ebbing,
+  .tide span,
+  .deep-banner,
+  #work .panel-body {
+    animation: none;
+  }
+}
+@media (max-width: 760px) {
+  #work.work-panel {
+    top: 15vh;
+    padding: 0 10px 80px;
+  }
+  .tide {
+    margin: 0 -10px;
+  }
+  .deep-top {
+    margin: 0 -10px;
+    padding: 10px 10px 30px;
+    gap: 8px;
+  }
+  .area-tabs {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    max-width: 100%;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .area-tabs button {
+    flex: 0 0 auto;
+  }
+  .deep-banner {
+    grid-template-columns: 1fr;
+    padding: 16px;
+  }
+  .deep-banner h2 {
+    font-size: 26px;
+  }
+  .banner-stats strong {
+    font-size: 22px;
+  }
+  #work .panel-body {
+    padding: 18px 16px 22px;
+  }
+  .area-tabs button {
+    padding: 7px 10px;
+    font-size: 12px;
+  }
+}

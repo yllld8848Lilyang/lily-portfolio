@@ -2,121 +2,579 @@
   "version": 1,
   "profile": {
     "name": "Lily Yang",
+    "nameZh": "杨莉",
     "title": "AI Explorer Island",
     "titleZh": "AI 探索岛",
-    "subtitle": "AI Marketing Builder",
-    "intro": "Building AI-powered products through user insights and marketing strategy.",
-    "nameZh": "杨莉",
-    "subtitleZh": "AI Marketing Builder · AI 营销产品构建者",
-    "introZh": "通过用户洞察与营销策略，构建 AI 驱动的产品。",
-    "transition": "Moving from Marketing and Operations toward AI Product Building.",
-    "transitionZh": "从市场营销与运营走向 AI 产品构建。",
+    "subtitle": "Growth Marketer",
+    "subtitleZh": "增长营销与运营",
+    "intro": "I turn user insight into content, campaigns and growth — and use AI to do it faster.",
+    "introZh": "从用户洞察出发，用内容、活动和数据驱动增长，并用 AI 提效。",
+    "disclaimer": "All case data is anonymised and shared for job applications only.",
+    "disclaimerZh": "案例数据均已脱敏，仅供求职使用。",
     "education": [
       {
-        "degree": "BSc Human Resource Management",
+        "degree": "BSc Human Resource Management · Top 5%",
+        "degreeZh": "人力资源管理学士 · 专业前 5%",
         "institution": "Zhejiang University of Water Resources and Electric Power",
-        "period": "2022–2026",
-        "degreeZh": "人力资源管理学士",
         "institutionZh": "浙江水利水电学院",
+        "period": "2022–2026",
         "periodZh": "2022–2026"
       },
       {
         "degree": "MSc International Marketing Management",
-        "institution": "University of Leeds",
-        "period": "2026–2027 · In progress",
         "degreeZh": "国际市场营销管理硕士",
+        "institution": "University of Leeds",
         "institutionZh": "利兹大学",
+        "period": "2026–2027 · In progress",
         "periodZh": "2026–2027 · 在读"
       }
     ],
     "capabilities": [
       {
-        "name": "User Research",
-        "nameZh": "用户研究"
+        "name": "Content Operations",
+        "nameZh": "内容运营"
       },
       {
-        "name": "Product Thinking",
-        "nameZh": "产品思维"
+        "name": "User Growth",
+        "nameZh": "用户增长"
       },
       {
-        "name": "Growth Marketing",
-        "nameZh": "增长营销"
+        "name": "Campaign Planning",
+        "nameZh": "活动策划"
+      },
+      {
+        "name": "Data Analysis · SQL",
+        "nameZh": "数据分析 · SQL"
       },
       {
         "name": "AI Product Operations",
         "nameZh": "AI 产品运营"
-      },
-      {
-        "name": "Data Analysis",
-        "nameZh": "数据分析"
       }
     ],
     "links": [
       {
-        "label": "View GitHub repository",
-        "labelZh": "查看 GitHub 仓库",
+        "label": "Email",
+        "labelZh": "邮箱",
+        "url": "mailto:yllld8848@gmail.com"
+      },
+      {
+        "label": "LinkedIn",
+        "labelZh": "LinkedIn",
+        "url": "https://www.linkedin.com/in/lily-yang-98312b439/"
+      },
+      {
+        "label": "GitHub",
+        "labelZh": "GitHub",
         "url": "https://github.com/yllld8848Lilyang/lily-portfolio"
       }
     ]
   },
   "modules": [
     {
-      "id": "insight-forest",
-      "name": "Insight Forest",
-      "nameZh": "洞察森林",
-      "short": "INSIGHT",
-      "shortZh": "用户洞察",
-      "english": "USER RESEARCH",
-      "englishZh": "用户研究",
-      "intro": "How I turn user needs into clearer product opportunities.",
-      "introZh": "看我如何把用户需求转化为清晰的产品机会。",
-      "description": "A Small-U case from my AI product operations experience at Joy Media. The story follows problem discovery, feedback analysis, and product improvement support.",
-      "descriptionZh": "基于我在无忧传媒参与小U AI 产品运营的经历，展示问题发现、反馈分析与产品优化支持。",
-      "kind": "research",
+      "id": "cv-video",
+      "name": "CV Video",
+      "nameZh": "视频简历",
+      "short": "CV VIDEO",
+      "shortZh": "视频简历",
+      "english": "MEET LILY",
+      "englishZh": "认识杨莉",
+      "intro": "Who I am and what I’ve done, in two minutes.",
+      "introZh": "两分钟认识我：我是谁，做过什么。",
+      "kind": "projects",
+      "items": [
+        {
+          "title": "My CV video",
+          "titleZh": "我的视频简历",
+          "status": "coming-soon",
+          "summary": "A short video introducing who I am, my work experience and the kind of marketing work I want to do next.",
+          "summaryZh": "一段短视频，介绍我是谁、我的工作经历，以及接下来想做的营销工作。",
+          "chapters": [
+            {
+              "title": "Until then",
+              "titleZh": "在此之前",
+              "text": "Explore Marketing & Growth for real campaigns and content, or AI Projects for a tool I built that is in use.",
+              "textZh": "可以先去“营销与增长”看真实的活动与内容案例，或去“AI 项目”看我独立开发并投入使用的工具。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marketing-growth",
+      "name": "Marketing & Growth",
+      "nameZh": "营销与增长",
+      "short": "MARKETING",
+      "shortZh": "营销与增长",
+      "english": "CONTENT · CAMPAIGNS · INSIGHT",
+      "englishZh": "内容 · 活动 · 洞察",
+      "intro": "Content people want to watch, campaigns that bring them in, and data that shows what worked.",
+      "introZh": "做用户愿意看的内容，办能带来新用户的活动，再用数据验证什么有效。",
+      "kind": "projects",
       "metrics": [
         {
-          "value": "50+",
-          "label": "user needs collected",
-          "labelZh": "条需求收集"
+          "value": "192",
+          "label": "new users from events",
+          "labelZh": "名新用户由活动驱动"
         },
         {
-          "value": "7",
-          "label": "optimization directions",
-          "labelZh": "个优化方向"
+          "value": "+30pp",
+          "label": "campaign conversion",
+          "labelZh": "活动期转化率"
+        },
+        {
+          "value": "500K+",
+          "label": "short-video views",
+          "labelZh": "短视频累计播放"
         }
       ],
       "items": [
         {
-          "title": "From User Needs to Product Directions",
-          "titleZh": "从用户需求到产品优化方向",
-          "summary": "A structured story of how user needs were collected, patterns were identified, and findings supported Small-U improvements.",
-          "summaryZh": "梳理需求收集、规律识别与支持小U优化的过程。",
-          "kicker": "JOY MEDIA · AI PRODUCT OPERATIONS",
-          "kickerZh": "无忧传媒 · AI 产品运营",
-          "chapters": [
+          "group": "Content & Social",
+          "groupZh": "内容与社媒",
+          "title": "Jewel Commercial Group",
+          "titleZh": "星耀集团",
+          "company": "Jewel Commercial Group",
+          "companyZh": "星耀集团",
+          "industry": "Fire & car safety products · E-commerce",
+          "industryZh": "消防与车载安全产品 · 电商",
+          "role": "E-commerce New Media Operations Intern",
+          "roleZh": "电商部新媒体运营实习生",
+          "period": "Jun – Dec 2024",
+          "periodZh": "2024.6–2024.12",
+          "summary": "Made the short videos that sold Huiyou, the group’s own fire-safety brand, on Douyin, Xiaohongshu and three online stores — scripting, shooting, editing and appearing on camera.",
+          "summaryZh": "为集团旗下消防安全品牌“汇友”在抖音、小红书和三个电商店铺制作短视频：写脚本、拍摄、剪辑并出镜。",
+          "metrics": [
             {
-              "title": "Discover the workflow needs",
-              "titleZh": "发现真实工作需求",
-              "text": "Worked with directors and designers to understand needs around script writing, adapting successful short-video formats, and poster design.",
-              "textZh": "对接编导与设计人员，了解脚本撰写、短视频内容复用和海报设计中的实际需求。"
+              "value": "+15.6%",
+              "label": "followers",
+              "labelZh": "粉丝增长"
             },
             {
-              "title": "Synthesize feedback",
-              "titleZh": "整理并分析反馈",
-              "text": "Collected more than 50 needs through questionnaires and one-to-one conversations, then organized feedback into recurring product opportunities.",
-              "textZh": "通过问卷与一对一沟通收集 50+ 条需求，并将反馈整理为重复出现的产品机会。"
+              "value": "+11.2%",
+              "label": "engagement",
+              "labelZh": "互动率"
             },
             {
-              "title": "Support product improvement",
-              "titleZh": "支持产品优化",
-              "text": "Identified seven optimization directions, including script-structure guidance and creator-persona tags, and supported the team’s work to improve Small-U.",
-              "textZh": "总结出 7 个优化方向，包括脚本结构建议与达人标签，并支持团队优化小U。"
+              "value": "+12%",
+              "label": "campaign sales",
+              "labelZh": "活动期销售额"
             }
           ],
-          "reflection": "The next step is to connect each recommendation to its evidence, implementation status, and measured outcome.",
-          "reflectionZh": "下一步将把每条建议与对应证据、落地状态和效果口径关联起来。",
-          "sourceNote": "Counts are from Lily’s supplied summary and CV. The underlying Feishu table is not linked or reproduced here.",
-          "sourceNoteZh": "数据来自杨莉提供的汇总与简历；页面不链接或复现底层飞书表格。"
+          "media": [
+            {
+              "type": "video",
+              "src": "/assets/xingyao-seat-cushion.mp4",
+              "poster": "/assets/xingyao-seat-cushion-poster.jpg",
+              "caption": "Product video · car seat cushion (Chinese voice-over)",
+              "captionZh": "电商主图视频 · 车载坐垫"
+            },
+            {
+              "type": "video",
+              "src": "/assets/xingyao-window-breaker.mp4",
+              "poster": "/assets/xingyao-window-breaker-poster.jpg",
+              "caption": "Product video · lipstick-size window breaker (Chinese voice-over)",
+              "captionZh": "产品种草视频 · 口红式破窗器"
+            },
+            {
+              "type": "video",
+              "src": "/assets/xingyao-extinguisher-guide.mp4",
+              "poster": "/assets/xingyao-extinguisher-guide-poster.jpg",
+              "caption": "How-to video · using a fire extinguisher (Chinese voice-over)",
+              "captionZh": "科普教程 · 灭火器使用方法"
+            },
+            {
+              "type": "image",
+              "src": "/assets/xingyao-store-summary.jpg",
+              "caption": "Monthly sales report: visitors, sales and top products across three stores",
+              "captionZh": "月报 · 三店访客、成交与热销商品汇总"
+            },
+            {
+              "type": "image",
+              "src": "/assets/xingyao-douyin-report.jpg",
+              "caption": "Daily Douyin store tracking: traffic, conversion and ad spend",
+              "captionZh": "月报 · 抖店每日流量、转化与投流追踪"
+            },
+            {
+              "type": "image",
+              "src": "/assets/xingyao-xhs-report.jpg",
+              "caption": "Xiaohongshu (RED) account report: note views and traffic sources",
+              "captionZh": "月报 · 小红书笔记数据与流量来源"
+            }
+          ],
+          "chapters": [
+            {
+              "title": "Goal",
+              "titleZh": "目标",
+              "text": "Make low-interest safety products worth watching, and turn views into store sales.",
+              "textZh": "让低关注度的安全类产品“值得看”，并把播放转化为店铺成交。"
+            },
+            {
+              "title": "Action",
+              "titleZh": "动作",
+              "text": "Planned a product-and-holiday content calendar, made the videos end to end, and shortlisted 6 creators, closing 2 paid collaborations.",
+              "textZh": "按产品与节日节点排内容日历，独立完成视频全流程；筛选建联 6 位达人，达成 2 位合作。"
+            },
+            {
+              "title": "Result",
+              "titleZh": "结果",
+              "text": "Followers +15.6%, engagement +11.2%, campaign sales +12%; one account gained 500+ followers in a week.",
+              "textZh": "粉丝 +15.6%，互动率 +11.2%，活动期销售额 +12%；其中一个账号一周涨粉 500+。"
+            }
+          ],
+          "sourceNote": "Screenshots are from my internship and are in Chinese; the data is internal and has been anonymised.",
+          "sourceNoteZh": "报表为内部数据，已做脱敏处理，仅供求职使用。",
+          "logo": "/assets/logo-jewel.png"
+        },
+        {
+          "group": "Content & Social",
+          "groupZh": "内容与社媒",
+          "title": "Rush Outdoor",
+          "titleZh": "热石户外",
+          "company": "Rush Outdoor",
+          "companyZh": "热石户外",
+          "industry": "Outdoor travel & adventure trips",
+          "industryZh": "户外旅行与探险线路",
+          "role": "User Content & Product Operations Intern",
+          "roleZh": "用户内容与产品运营实习生",
+          "period": "Aug – Dec 2023",
+          "periodZh": "2023.8–2023.12",
+          "summary": "Got trip participants posting about their trips under #RushOutdoor, and packaged routes and themed trips so more people signed up.",
+          "summaryZh": "让参加线路的用户主动发 #RushOutdoor 笔记，同时包装线路与主题活动，带动更多报名。",
+          "metrics": [
+            {
+              "value": "18K",
+              "label": "topic views",
+              "labelZh": "话题浏览"
+            },
+            {
+              "value": "+2,300",
+              "label": "followers",
+              "labelZh": "小红书涨粉"
+            },
+            {
+              "value": "+35%",
+              "label": "slow-route sign-ups",
+              "labelZh": "滞销线路报名"
+            }
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "/assets/rush-vlog-cover.jpg",
+              "size": "tall",
+              "caption": "Cover of my vlog “Travel with Rush”",
+              "captionZh": "我剪辑的 vlog《跟着 Rush 旅行》封面"
+            },
+            {
+              "type": "image",
+              "src": "/assets/rush-desert-banner.jpg",
+              "size": "wide",
+              "caption": "Tengger Desert trek with the Rush Outdoor banner",
+              "captionZh": "腾格里沙漠徒步 · Rush 户外横幅合影"
+            },
+            {
+              "type": "image",
+              "src": "/assets/rush-salt-lake.jpg",
+              "size": "wide",
+              "caption": "Drone shot at a pink salt lake",
+              "captionZh": "盐湖航拍合影"
+            },
+            {
+              "type": "image",
+              "src": "/assets/rush-cave.jpg",
+              "size": "tall",
+              "caption": "Cave trip group photo",
+              "captionZh": "探洞线路合影"
+            },
+            {
+              "type": "image",
+              "src": "/assets/rush-snow-group.jpg",
+              "caption": "Winter grassland trip",
+              "captionZh": "冬日草原线路合影"
+            },
+            {
+              "type": "image",
+              "src": "/assets/rush-topic-page.jpg",
+              "size": "tall",
+              "caption": "The #RushOutdoor topic on Xiaohongshu (RED): 18K views, 273 discussions",
+              "captionZh": "#RushOutdoor 话题页：1.8 万浏览、273 讨论"
+            },
+            {
+              "type": "image",
+              "src": "/assets/rush-ugc-note-1.jpg",
+              "size": "tall",
+              "caption": "A participant’s post about a grassland trip, tagging the brand",
+              "captionZh": "用户笔记 · 乌兰布统之行，带话题并 @ 官方账号"
+            },
+            {
+              "type": "image",
+              "src": "/assets/rush-ugc-note-2.jpg",
+              "size": "tall",
+              "caption": "A participant’s review of a day trip with a cooking class",
+              "captionZh": "用户笔记 · 一日游泰菜课程体验分享"
+            },
+            {
+              "type": "image",
+              "src": "/assets/rush-creator-profile.jpg",
+              "size": "tall",
+              "caption": "A travel creator who joined and posted about Rush trips",
+              "captionZh": "参与并分享 Rush 线路的旅行博主主页"
+            }
+          ],
+          "chapters": [
+            {
+              "title": "Goal",
+              "titleZh": "目标",
+              "text": "Turn one-off trip participants into people who post, follow and come back.",
+              "textZh": "把一次性参加活动的用户，变成会发内容、会关注、会再来的人。"
+            },
+            {
+              "title": "Action",
+              "titleZh": "动作",
+              "text": "Built a voucher-based posting incentive, repackaged routes and tags, and ran themed trips with trip-plus-gear bundles.",
+              "textZh": "以代金券设计 UGC 激励，重新包装线路与标签，策划“行程 + 装备”主题活动。"
+            },
+            {
+              "title": "Result",
+              "titleZh": "结果",
+              "text": "40+ user posts and 50K+ account reads; a slow route’s sign-ups recovered 35% and themed trips passed 60 sign-ups each.",
+              "textZh": "40+ 篇用户笔记，账号阅读 5 万+；滞销线路报名回升 35%，主题活动单场报名破 60 人。"
+            }
+          ],
+          "sourceNote": "Photos and screenshots are shared with permission.",
+          "sourceNoteZh": "照片与截图均已获得授权。",
+          "logo": "/assets/logo-rush.png"
+        },
+        {
+          "group": "Campaigns & Events",
+          "groupZh": "活动与社群",
+          "title": "ZEEKR",
+          "titleZh": "极氪",
+          "company": "ZEEKR",
+          "companyZh": "极氪",
+          "industry": "Premium electric vehicles · Geely Group",
+          "industryZh": "高端电动汽车 · 吉利集团",
+          "role": "User & Event Operations Intern",
+          "roleZh": "用户活动运营实习生",
+          "period": "Sep – Dec 2025",
+          "periodZh": "2025.9–2025.12",
+          "summary": "Ran owner events and community content, including events for sister brand Lynk & Co.",
+          "summaryZh": "负责车主活动与社区内容，也参与组织吉利旗下兄弟品牌领克的活动。",
+          "metrics": [
+            {
+              "value": "192",
+              "label": "new users from events",
+              "labelZh": "名新用户"
+            },
+            {
+              "value": "200+",
+              "label": "user posts",
+              "labelZh": "篇 UGC"
+            },
+            {
+              "value": "+30%",
+              "label": "key-segment conversion",
+              "labelZh": "关键用户转化率"
+            }
+          ],
+          "chapters": [
+            {
+              "title": "Goal",
+              "titleZh": "目标",
+              "text": "Bring in new owners through events, and keep existing owners posting.",
+              "textZh": "用活动带来新车主，让老车主持续发内容。"
+            },
+            {
+              "title": "Action",
+              "titleZh": "动作",
+              "text": "Ran events such as the Autumn New Owner Night across the app, owner groups and social media, with points-and-badges posting incentives.",
+              "textZh": "执行秋日新车主之夜等活动，经 App、车主群与社媒推广，并设计积分与勋章 UGC 激励。"
+            },
+            {
+              "title": "Result",
+              "titleZh": "结果",
+              "text": "192 new users, participation +10%, 200+ user posts and 500K+ short-video views.",
+              "textZh": "192 名新用户，参与率 +10%，200+ 篇 UGC，短视频播放 50 万+。"
+            }
+          ],
+          "logo": "/assets/logo-zeekr.png",
+          "media": [
+            {
+              "type": "image",
+              "src": "/assets/zeekr-lynk-night-1.jpg",
+              "caption": "Lynk & Co Autumn New Owner Night · owner training session",
+              "captionZh": "领克“秋日新车主之夜”现场 · 车主培训环节"
+            },
+            {
+              "type": "image",
+              "src": "/assets/zeekr-lynk-night-2.jpg",
+              "caption": "Lynk & Co Autumn New Owner Night · owner sharing session",
+              "captionZh": "领克“秋日新车主之夜”现场 · 车主分享环节"
+            }
+          ]
+        },
+        {
+          "group": "Data & Insight",
+          "groupZh": "数据与洞察",
+          "title": "DiDi Chuxing",
+          "titleZh": "滴滴出行",
+          "company": "DiDi Chuxing",
+          "companyZh": "滴滴出行",
+          "industry": "Ride-hailing & mobility · EV charging app",
+          "industryZh": "出行平台 · 新能源充电 App",
+          "role": "Product & User Operations Intern",
+          "roleZh": "产品用户运营实习生",
+          "period": "Dec 2025 – May 2026",
+          "periodZh": "2025.12–2026.5",
+          "summary": "Designed the coupon packages for the Spring Festival charging campaign and measured the results with SQL.",
+          "summaryZh": "为小桔充电春节大促设计券包，并用 SQL 取数复盘效果。",
+          "metrics": [
+            {
+              "value": "+30pp",
+              "label": "target-group conversion",
+              "labelZh": "目标人群转化率"
+            },
+            {
+              "value": "12",
+              "label": "strategy rollouts",
+              "labelZh": "次策略上线"
+            }
+          ],
+          "chapters": [
+            {
+              "title": "Goal",
+              "titleZh": "目标",
+              "text": "Get more drivers to charge during the Spring Festival campaign.",
+              "textZh": "春节大促期间，让更多车主完成充电。"
+            },
+            {
+              "title": "Action",
+              "titleZh": "动作",
+              "text": "Built tiered coupons for new, returning and lapsed drivers, and ran the homepage recommendation strategy.",
+              "textZh": "为新客、回流、流失人群设计阶梯券包，并负责首页推荐策略。"
+            },
+            {
+              "title": "Result",
+              "titleZh": "结果",
+              "text": "Target-group conversion rose about 30 percentage points; my SQL review became the baseline for later campaigns.",
+              "textZh": "目标人群转化率提升约 30pp；SQL 复盘报告成为后续活动的参考基线。"
+            }
+          ],
+          "sourceNote": "Campaign pages shown are public; company figures are confidential, so only relative results are shown.",
+          "sourceNoteZh": "展示的均为公开活动页面；公司数据保密，仅展示相对结果。",
+          "logo": "/assets/logo-didi.png",
+          "media": [
+            {
+              "type": "image",
+              "src": "/assets/didi-app-home.jpg",
+              "caption": "Xiaoju Charging app home · campaign entry points (public page)",
+              "captionZh": "小桔充电 App 首页 · 活动入口（公开页面）",
+              "size": "tall"
+            },
+            {
+              "type": "image",
+              "src": "/assets/didi-member-alipay.jpg",
+              "caption": "Membership offer page (public campaign page)",
+              "captionZh": "会员权益活动页（公开页面）",
+              "size": "tall"
+            },
+            {
+              "type": "image",
+              "src": "/assets/didi-vip-offer.jpg",
+              "caption": "Member coupon offer",
+              "captionZh": "会员券包活动页",
+              "size": "tall"
+            },
+            {
+              "type": "image",
+              "src": "/assets/didi-flash-sale.jpg",
+              "caption": "Flash-sale charging coupons",
+              "captionZh": "限时秒杀充电券"
+            },
+            {
+              "type": "image",
+              "src": "/assets/didi-lucky-draw.jpg",
+              "caption": "Lucky-draw campaign page",
+              "captionZh": "抽奖活动页",
+              "size": "wide"
+            }
+          ]
+        },
+        {
+          "group": "Data & Insight",
+          "groupZh": "数据与洞察",
+          "title": "Joy Media",
+          "titleZh": "无忧传媒",
+          "company": "Joy Media",
+          "companyZh": "无忧传媒",
+          "industry": "MCN · influencer & live-streaming agency",
+          "industryZh": "MCN · 达人与直播机构",
+          "role": "AI Product Operations Intern",
+          "roleZh": "AI 产品运营实习生",
+          "period": "Mar – Sep 2025",
+          "periodZh": "2025.3–2025.9",
+          "summary": "Talked to the directors and designers using Small-U, the company’s AI content tool, and turned their needs into product improvements.",
+          "summaryZh": "对接使用公司 AI 内容工具“小U同学”的编导与设计，把他们的需求转化为产品优化方向。",
+          "metrics": [
+            {
+              "value": "150+",
+              "label": "user needs",
+              "labelZh": "条需求"
+            },
+            {
+              "value": "+30%",
+              "label": "script efficiency",
+              "labelZh": "脚本生成效率"
+            },
+            {
+              "value": "−25%",
+              "label": "poster design time",
+              "labelZh": "海报设计时间"
+            }
+          ],
+          "chapters": [
+            {
+              "title": "Goal",
+              "titleZh": "目标",
+              "text": "Find out what users needed from Small-U, and prove whether changes worked.",
+              "textZh": "弄清用户真正需要小U做什么，并验证优化是否有效。"
+            },
+            {
+              "title": "Action",
+              "titleZh": "动作",
+              "text": "Collected 150+ needs through surveys and interviews, grouped them into 7 priorities, and tested new features before launch.",
+              "textZh": "通过问卷与访谈收集 150+ 条需求，归纳为 7 个优化点，并在上线前完成功能测试。"
+            },
+            {
+              "title": "Result",
+              "titleZh": "结果",
+              "text": "Script writing became 30% faster and poster design time dropped 25%.",
+              "textZh": "脚本生成效率提升 30%，海报设计时间缩短 25%。"
+            }
+          ],
+          "crossLink": {
+            "module": "ai-projects",
+            "item": 0,
+            "label": "See InsightLoop, the feedback tool I built for this work",
+            "labelZh": "查看我为这段工作开发的反馈工具 InsightLoop"
+          },
+          "logo": "/assets/logo-joymedia.png",
+          "media": [
+            {
+              "type": "image",
+              "src": "/assets/joymedia-smallu-home.jpg",
+              "caption": "Small-U AI toolkit · home (anonymised)",
+              "captionZh": "小U AI 工具台首页（已脱敏）"
+            },
+            {
+              "type": "image",
+              "src": "/assets/joymedia-smallu-poster.jpg",
+              "caption": "Small-U AI toolkit · poster generator (anonymised)",
+              "captionZh": "小U AI 工具台 · 海报生成页（已脱敏）"
+            }
+          ],
+          "sourceNote": "Internal tool screenshots, blurred and anonymised; shown for job applications only.",
+          "sourceNoteZh": "内部工具截图，已做模糊与脱敏处理，仅供求职使用。"
         }
       ]
     },
@@ -125,173 +583,316 @@
       "name": "AI Projects",
       "nameZh": "AI 项目",
       "short": "AI BUILDS",
-      "shortZh": "AI 构建",
-      "english": "PRODUCT STORIES",
-      "englishZh": "产品故事",
-      "intro": "Three product stories, with each project’s current stage made clear.",
-      "introZh": "三个产品故事，清楚标注每个项目目前所处的阶段。",
-      "description": "Explore one prototype and two concepts at the intersection of AI, product thinking, gaming, and marketing.",
-      "descriptionZh": "探索 AI、产品思维、游戏与营销交汇处的一个原型和两个概念项目。",
+      "shortZh": "AI 项目",
+      "english": "BUILT BY ME",
+      "englishZh": "独立构建",
+      "intro": "AI tools I design and build myself.",
+      "introZh": "我自己设计并开发的 AI 工具。",
       "kind": "projects",
       "items": [
         {
-          "title": "Small-U Feedback Assistant",
-          "titleZh": "小U反馈洞察助手",
-          "summary": "An independently designed AI product operations prototype, inspired by my Small-U experience at Joy Media. It explores how teams can turn user needs and anonymized feedback into clearer product insights.",
-          "summaryZh": "基于我在无忧传媒参与小U AI 产品运营的经历启发，自主设计的 AI 产品运营原型，探索如何把用户需求与脱敏反馈转化为更清晰的产品洞察。",
-          "kicker": "PROTOTYPE · INDEPENDENT PRODUCT DESIGN",
-          "kickerZh": "原型 · 独立产品设计",
+          "title": "InsightLoop",
+          "titleZh": "InsightLoop",
+          "company": "InsightLoop",
+          "companyZh": "InsightLoop",
+          "industry": "AI feedback & survey assistant",
+          "industryZh": "AI 反馈与问卷助手",
+          "role": "Built at Joy Media to gather feedback for Small-U, the company’s internal AI content tool. Designed so any product team can use it.",
+          "roleZh": "在无忧传媒为公司 AI 工具“小U同学”收集反馈时自主开发，任何产品团队都能使用。",
+          "status": "live",
+          "summary": "Turns scattered user feedback into clear product decisions: set up a survey, let AI draft the questions, review them, publish, then read the anonymised results by team and theme.",
+          "summaryZh": "把分散的用户反馈变成清晰的产品决策：配置调研、AI 生成题目、人工审核、发布，再按团队与主题查看脱敏结果。",
+          "media": [
+            {
+              "type": "image",
+              "src": "/assets/insightloop-assistant.jpg",
+              "caption": "Survey assistant: set the goal and audience, and AI drafts the questions (interface in Chinese)",
+              "captionZh": "问卷助手：设定目标与对象，AI 生成候选题目"
+            },
+            {
+              "type": "image",
+              "src": "/assets/insightloop-analytics.jpg",
+              "caption": "Results dashboard: anonymised answers by team, with recurring themes (interface in Chinese)",
+              "captionZh": "数据看板：按团队查看脱敏答卷与高频主题"
+            }
+          ],
+          "links": [
+            {
+              "label": "Open the full demo",
+              "labelZh": "打开完整演示",
+              "url": "https://yllld8848lilyang.github.io/Small-U-Feedback-Assistant/"
+            }
+          ],
           "chapters": [
             {
-              "title": "Why build it",
+              "title": "Why",
               "titleZh": "为什么做",
-              "text": "Inspired by my AI product operations experience with Small-U, this prototype addresses a familiar challenge: user needs and feedback can be scattered across conversations and documents. The goal is to connect them to clearer product opportunities.",
-              "textZh": "项目受到我参与小U AI 产品运营经历的启发，聚焦一个实际问题：用户需求与反馈容易分散在沟通和文档中，难以形成清晰的产品机会。"
+              "text": "Feedback on Small-U was scattered across chats and documents, so product decisions were slow.",
+              "textZh": "小U的用户反馈分散在聊天和文档里，产品决策很慢。"
             },
             {
-              "title": "Who it is for",
-              "titleZh": "为谁解决问题",
-              "text": "Designed for product and operations teams. The prototype demonstrates survey setup, locally generated candidate questions based on product context, editing and review, simulated publishing, and an anonymized feedback dashboard with team-level patterns and recurring themes.",
-              "textZh": "面向产品与运营团队。原型演示问卷配置、基于产品上下文在本地生成候选题目、编辑与审核、模拟发布，以及展示团队分布和高频主题的脱敏反馈看板。"
+              "title": "What I built",
+              "titleZh": "我做了什么",
+              "text": "I designed and built the whole tool myself: positioning, workflow, interface and dashboard.",
+              "textZh": "我独立完成整个工具：定位、流程、界面与看板。"
             },
             {
-              "title": "My contribution and next steps",
-              "titleZh": "个人贡献与下一步",
-              "text": "I independently shaped the product positioning, information architecture, workflow, and interactive web prototype, bringing together user research, feedback analysis, and AI product operations. Next, I want to strengthen evidence traceability and human review of product recommendations.",
-              "textZh": "我独立完成产品定位、信息架构、业务流程与交互式 Web 原型设计和开发，将用户研究、反馈分析与 AI 产品运营思路整合为可演示的解决方案。下一步将加强证据追溯与产品建议的人工复核。"
-            },
-            {
-              "title": "Interactive demo",
-              "titleZh": "交互演示",
-              "text": "Explore survey configuration, locally generated question drafts, editing and review, simulated publishing, and the anonymized analytics dashboard. Question drafting and publishing are prototype simulations; no live AI service, Feishu form, or notifications are connected. The prototype interface is currently in Chinese.",
-              "textZh": "可体验问卷配置、本地模拟生成题目、编辑与审核、模拟发布和脱敏数据看板。题目生成和发布均为原型演示，未接入在线 AI 服务，也不会创建真实飞书表单或发送通知。原型界面目前为中文。",
-              "embedUrl": "https://yllld8848lilyang.github.io/Small-U-Feedback-Assistant/?embed=1"
+              "title": "Next",
+              "titleZh": "下一步",
+              "text": "Link every recommendation back to the feedback behind it, with a human review step.",
+              "textZh": "让每条建议都能追溯到原始反馈，并加入人工复核。"
             }
           ],
-          "reflection": "Core capabilities: User Research · Product Operations · Data Analysis · AI Product Design. Dashboard figures are anonymized from real data; publication remains a local interaction simulation.",
-          "reflectionZh": "核心能力：用户研究 · 产品运营 · 数据分析 · AI 产品设计。看板数据来自真实数据脱敏；发布流程仍为本地交互模拟。",
-          "sourceNote": "Independent prototype inspired by Lily’s Small-U operations experience. Dashboard data is anonymized; no real Feishu form or notification is created.",
-          "sourceNoteZh": "自主设计原型，受到杨莉参与小U运营经历的启发。看板数据为脱敏数据；不会创建真实飞书表单或发送通知。"
+          "sourceNote": "The dashboard shows an anonymised sample: 50+ of the 150+ needs collected at Joy Media.",
+          "sourceNoteZh": "看板为脱敏样本：无忧传媒收集的 150+ 条需求中的 50+ 条。"
         },
         {
-          "title": "GameLingo AI",
-          "titleZh": "GameLingo AI",
-          "summary": "A Player Insight Engine concept for finding player pain points in Steam reviews and Reddit discussions.",
-          "summaryZh": "玩家洞察引擎概念，旨在从 Steam 评论和 Reddit 讨论中发现玩家痛点。",
-          "kicker": "CONCEPT · PLAYER INSIGHT ENGINE",
-          "kickerZh": "概念 · 玩家洞察引擎",
+          "title": "Lingguang · Inspiration AI",
+          "titleZh": "灵光 · 营销灵感 AI",
+          "company": "Lingguang · Inspiration AI",
+          "companyZh": "灵光 · 营销灵感 AI",
+          "industry": "AI marketing strategy assistant",
+          "industryZh": "AI 营销策略助手",
+          "status": "in-progress",
+          "summary": "Start a campaign from a brief, or paste an existing plan to improve it — built on real campaigns I worked on.",
+          "summaryZh": "从简报开始新活动，或粘贴已有方案进行优化——以我做过的真实活动为底座。",
           "chapters": [
             {
-              "title": "The opportunity",
-              "titleZh": "产品机会",
-              "text": "Game communities create large volumes of discussion. GameLingo AI explores how those conversations might become clearer player insight for teams.",
-              "textZh": "游戏社区持续产生大量讨论。GameLingo AI 探索如何将这些讨论转化为团队更易理解的玩家洞察。"
-            },
-            {
-              "title": "The product direction",
-              "titleZh": "产品方向",
-              "text": "Analyze Steam reviews and Reddit discussions to surface recurring player pain points. The target workflow and analysis method still need validation.",
-              "textZh": "分析 Steam 评论与 Reddit 讨论，发现重复出现的玩家痛点。目标工作流与分析方法仍需验证。"
-            },
-            {
-              "title": "What comes next",
-              "titleZh": "下一步探索",
-              "text": "Define the target user, select a permitted sample, and test whether the resulting themes are specific and useful. This remains a concept, not a deployed tool.",
-              "textZh": "明确目标用户、选择获准使用的样本，并验证归纳出的主题是否具体且有用。当前仍是概念，不是已上线工具。"
-            }
-          ],
-          "sourceNote": "This current direction differs from the supplied draft PRD, which describes a localization checker.",
-          "sourceNoteZh": "当前方向与所提供的旧版 PRD 不同；旧版文档描述的是本地化检查工具。"
-        },
-        {
-          "title": "Inspiration AI",
-          "titleZh": "Inspiration AI",
-          "summary": "An AI Marketing Strategy Generator concept that turns a brand, audience, and goal into a structured campaign starting point.",
-          "summaryZh": "AI 营销策略生成器概念，将品牌、受众与目标转化为结构化的营销方案起点。",
-          "kicker": "CONCEPT · AI MARKETING STRATEGY",
-          "kickerZh": "概念 · AI 营销策略",
-          "chapters": [
-            {
-              "title": "The brief",
-              "titleZh": "输入简报",
-              "text": "A marketer provides the brand, intended audience, and campaign goal.",
-              "textZh": "营销人员提供品牌、目标受众与营销目标。"
-            },
-            {
-              "title": "The strategy draft",
-              "titleZh": "策略草案",
-              "text": "The concept proposes a campaign idea, growth strategy, and content plan for the brief.",
-              "textZh": "根据简报生成活动创意、增长策略与内容计划。"
-            },
-            {
-              "title": "The product question",
-              "titleZh": "需要验证的问题",
-              "text": "The next step is to test whether the output is specific, on-brand, and useful enough for a marketer to refine. This remains a concept until a prototype is confirmed.",
-              "textZh": "下一步验证输出是否具体、符合品牌并足以供营销人员继续完善。确认原型前，本项目仍是概念。"
+              "title": "What it does",
+              "titleZh": "做什么",
+              "text": "Brand, audience and goal in; campaign idea, growth plan and content calendar out.",
+              "textZh": "输入品牌、受众与目标，输出活动创意、增长策略与内容日历。"
             }
           ]
         }
       ]
     },
     {
-      "id": "career-harbor",
-      "name": "Career Harbor",
-      "nameZh": "职业港湾",
-      "short": "CAREER",
-      "shortZh": "职业经历",
-      "english": "SELECTED EXPERIENCE",
-      "englishZh": "精选经历",
-      "intro": "Three roles, presented through the capabilities they developed.",
-      "introZh": "三段经历，围绕所展现的能力展开。",
-      "description": "A concise view of product operations, user research, data analysis, optimization, and growth activity across three organizations.",
-      "descriptionZh": "简要呈现三段经历中的产品运营、用户研究、数据分析、优化与增长活动能力。",
+      "id": "experience",
+      "name": "Experience",
+      "nameZh": "实习经历",
+      "short": "EXPERIENCE",
+      "shortZh": "实习经历",
+      "english": "INTERNSHIPS & LEADERSHIP",
+      "englishZh": "实习与校园经历",
+      "intro": "Where I’ve worked, and what each role added.",
+      "introZh": "我做过的工作，以及每段经历带来的能力。",
       "kind": "gallery",
       "timeline": [
         {
-          "period": "Mar–Sep 2025",
-          "title": "Joy Media · AI Product Operations Intern",
-          "titleZh": "无忧传媒 · AI 产品运营实习生",
-          "text": "User needs, feature testing, product documentation, and feedback analysis.",
-          "textZh": "用户需求、功能测试、产品文档与反馈分析。"
+          "period": "Dec 2025 – May 2026",
+          "periodZh": "2025.12–2026.5",
+          "title": "DiDi Chuxing (Ride-hailing & mobility)",
+          "titleZh": "滴滴出行（出行平台）",
+          "text": "Product & User Operations Intern",
+          "textZh": "产品用户运营实习生",
+          "logo": "/assets/logo-didi.png",
+          "metric": {
+            "value": "+30pp",
+            "label": "target-group conversion",
+            "labelZh": "目标人群转化率"
+          }
         },
         {
-          "period": "Sep–Dec 2025",
-          "title": "ZEEKR · User & Event Operations Intern",
-          "titleZh": "极氪 · 用户与活动运营实习生",
-          "text": "User and event operations, campaign coordination, and product optimization support.",
-          "textZh": "用户与活动运营、营销活动协同及产品优化支持。"
+          "period": "Sep – Dec 2025",
+          "periodZh": "2025.9–2025.12",
+          "title": "ZEEKR (Premium EVs · Geely Group)",
+          "titleZh": "极氪（高端电动汽车 · 吉利集团）",
+          "text": "User & Event Operations Intern",
+          "textZh": "用户活动运营实习生",
+          "logo": "/assets/logo-zeekr.png",
+          "metric": {
+            "value": "192",
+            "label": "new users from events",
+            "labelZh": "名新用户"
+          }
         },
         {
-          "period": "Dec 2025–May 2026",
-          "title": "DiDi · Product & User Operations Intern",
-          "titleZh": "滴滴 · 产品与用户运营实习生",
-          "text": "User operations, recommendation strategy support, product iteration, and SQL-based analysis.",
-          "textZh": "用户运营、推荐策略支持、产品迭代与 SQL 数据分析。"
+          "period": "Mar – Sep 2025",
+          "periodZh": "2025.3–2025.9",
+          "title": "Joy Media (MCN · influencer agency)",
+          "titleZh": "无忧传媒（MCN 机构）",
+          "text": "AI Product Operations Intern",
+          "textZh": "AI 产品运营实习生",
+          "logo": "/assets/logo-joymedia.png",
+          "metric": {
+            "value": "150+",
+            "label": "user needs collected",
+            "labelZh": "条需求"
+          }
+        },
+        {
+          "period": "Jun – Dec 2024",
+          "periodZh": "2024.6–2024.12",
+          "title": "Jewel Commercial Group (Fire & car safety products)",
+          "titleZh": "星耀集团（消防与车载安全产品）",
+          "text": "E-commerce New Media Operations Intern",
+          "textZh": "电商部新媒体运营实习生",
+          "logo": "/assets/logo-jewel.png",
+          "metric": {
+            "value": "+15.6%",
+            "label": "followers",
+            "labelZh": "粉丝增长"
+          }
+        },
+        {
+          "period": "Aug 2023 – Jun 2024",
+          "periodZh": "2023.8–2024.6",
+          "title": "National E-Commerce Challenge (student competition)",
+          "titleZh": "全国大学生电子商务“三创赛”",
+          "text": "Team Lead · Provincial Third Prize · 200 surveys issued, 173 valid (86.5%), 128-page project plan",
+          "textZh": "团队负责人 · 省三等奖 · 发放问卷 200 份，有效回收 173 份（回收率 86.5%），完成 128 页项目书",
+          "metric": {
+            "value": "173",
+            "label": "valid survey responses",
+            "labelZh": "份有效问卷"
+          }
+        },
+        {
+          "period": "Aug – Dec 2023",
+          "periodZh": "2023.8–2023.12",
+          "title": "Rush Outdoor (Outdoor travel & adventure)",
+          "titleZh": "热石户外（户外旅行）",
+          "text": "User Content & Product Operations Intern",
+          "textZh": "用户内容与产品运营实习生",
+          "logo": "/assets/logo-rush.png",
+          "metric": {
+            "value": "+2,300",
+            "label": "followers",
+            "labelZh": "涨粉"
+          }
+        },
+        {
+          "period": "Sep 2022 – Jun 2025",
+          "periodZh": "2022.9–2025.6",
+          "title": "University Youth Media Centre",
+          "titleZh": "校青年融媒体中心",
+          "text": "Director · 200+ events, 397 posts",
+          "textZh": "主任 · 200+ 场活动、397 篇推文",
+          "metric": {
+            "value": "200+",
+            "label": "events led",
+            "labelZh": "场活动"
+          }
         }
       ],
       "items": [
         {
-          "title": "Joy Media / 无忧传媒",
-          "summary": "AI Product Operations Intern · Mar–Sep 2025. User research, requirement synthesis, feature testing, and product documentation for Small-U.",
-          "summaryZh": "AI 产品运营实习生 · 2025 年 3–9 月。参与小U用户研究、需求整理、功能测试与产品文档。",
-          "kicker": "AI PRODUCT OPERATIONS · USER RESEARCH",
-          "kickerZh": "AI 产品运营 · 用户研究"
+          "title": "DiDi Chuxing",
+          "titleZh": "滴滴出行",
+          "company": "DiDi Chuxing",
+          "companyZh": "滴滴出行",
+          "industry": "Ride-hailing & mobility",
+          "industryZh": "出行平台",
+          "role": "Product & User Operations Intern",
+          "roleZh": "产品用户运营实习生",
+          "period": "Dec 2025 – May 2026",
+          "periodZh": "2025.12–2026.5",
+          "summary": "Recommendation strategy, campaign coupons and SQL reviews.",
+          "summaryZh": "推荐策略、活动券包与 SQL 复盘。",
+          "metrics": [
+            {
+              "value": "+30pp",
+              "label": "target-group conversion",
+              "labelZh": "目标人群转化率"
+            }
+          ],
+          "logo": "/assets/logo-didi.png"
         },
         {
-          "title": "ZEEKR / 极氪",
-          "summary": "User & Event Operations Intern · Sep–Dec 2025. SQL, product optimization, and growth activities.",
-          "summaryZh": "用户与活动运营实习生 · 2025 年 9–12 月。SQL、产品优化与增长活动。",
-          "kicker": "SQL · PRODUCT OPTIMIZATION · GROWTH",
-          "kickerZh": "SQL · 产品优化 · 增长活动"
+          "title": "ZEEKR",
+          "titleZh": "极氪",
+          "company": "ZEEKR",
+          "companyZh": "极氪",
+          "industry": "Premium EVs · Geely Group",
+          "industryZh": "高端电动汽车 · 吉利集团",
+          "role": "User & Event Operations Intern",
+          "roleZh": "用户活动运营实习生",
+          "period": "Sep – Dec 2025",
+          "periodZh": "2025.9–2025.12",
+          "summary": "Owner events, user segmentation and community content.",
+          "summaryZh": "车主活动、用户分层与社区内容。",
+          "metrics": [
+            {
+              "value": "192",
+              "label": "new users",
+              "labelZh": "名新用户"
+            }
+          ],
+          "logo": "/assets/logo-zeekr.png"
         },
         {
-          "title": "DiDi / 滴滴",
-          "summary": "Product & User Operations Intern · Dec 2025–May 2026. User operations, product operations, and data-informed iteration.",
-          "summaryZh": "产品与用户运营实习生 · 2025 年 12 月–2026 年 5 月。用户运营、产品运营与数据驱动迭代。",
-          "kicker": "USER OPERATIONS · PRODUCT OPERATIONS",
-          "kickerZh": "用户运营 · 产品运营"
+          "title": "Joy Media",
+          "titleZh": "无忧传媒",
+          "company": "Joy Media",
+          "companyZh": "无忧传媒",
+          "industry": "MCN · influencer agency",
+          "industryZh": "MCN 机构",
+          "role": "AI Product Operations Intern",
+          "roleZh": "AI 产品运营实习生",
+          "period": "Mar – Sep 2025",
+          "periodZh": "2025.3–2025.9",
+          "summary": "User research and testing for Small-U; built InsightLoop.",
+          "summaryZh": "小U同学的需求调研与测试；开发 InsightLoop。",
+          "metrics": [
+            {
+              "value": "150+",
+              "label": "user needs",
+              "labelZh": "条需求"
+            }
+          ],
+          "logo": "/assets/logo-joymedia.png"
+        },
+        {
+          "title": "Jewel Commercial Group",
+          "titleZh": "星耀集团",
+          "company": "Jewel Commercial Group",
+          "companyZh": "星耀集团",
+          "industry": "Fire & car safety products",
+          "industryZh": "消防与车载安全产品",
+          "role": "E-commerce New Media Operations Intern",
+          "roleZh": "电商部新媒体运营实习生",
+          "period": "Jun – Dec 2024",
+          "periodZh": "2024.6–2024.12",
+          "summary": "Scripting, shooting, editing and presenting product videos.",
+          "summaryZh": "产品视频的脚本、拍摄、剪辑与出镜。",
+          "metrics": [
+            {
+              "value": "+15.6%",
+              "label": "followers",
+              "labelZh": "粉丝增长"
+            }
+          ],
+          "logo": "/assets/logo-jewel.png"
+        },
+        {
+          "title": "Rush Outdoor",
+          "titleZh": "热石户外",
+          "company": "Rush Outdoor",
+          "companyZh": "热石户外",
+          "industry": "Outdoor travel & adventure",
+          "industryZh": "户外旅行",
+          "role": "User Content & Product Operations Intern",
+          "roleZh": "用户内容与产品运营实习生",
+          "period": "Aug – Dec 2023",
+          "periodZh": "2023.8–2023.12",
+          "summary": "UGC campaigns, route packaging and themed trips.",
+          "summaryZh": "UGC 运营、线路包装与主题活动。",
+          "metrics": [
+            {
+              "value": "+2,300",
+              "label": "followers",
+              "labelZh": "涨粉"
+            }
+          ],
+          "logo": "/assets/logo-rush.png"
         }
-      ]
+      ],
+      "showcase": {
+        "src": "/assets/competition-research.jpg",
+        "caption": "Competition project, software copyright and published paper",
+        "captionZh": "竞赛项目、软件著作权与已发表论文"
+      }
     }
   ]
 }

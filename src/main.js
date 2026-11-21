@@ -37,10 +37,16 @@ function renderProfile() {
   $("welcome-role").textContent = locale === "zh" ? profile.subtitleZh || profile.subtitle : profile.subtitle;
   $("welcome-story").textContent = text(profile, "intro");
   $("welcome-transition").textContent = text(profile, "transition");
+  $("welcome-transition").hidden = !text(profile, "transition");
   $("profile-capabilities").setAttribute("aria-label", COPY[locale].profileCapabilities);
   $("profile-capabilities").innerHTML = (profile.capabilities || [])
     .map((capability) => `<span>${escapeHTML(text(capability, "name"))}</span>`)
     .join("");
+  $("contact-links").setAttribute("aria-label", COPY[locale].contactLinks);
+  $("contact-links").innerHTML = (profile.links || [])
+    .map((link) => `<a href="${escapeHTML(link.url)}"${link.url.startsWith("mailto:") ? "" : ' target="_blank" rel="noopener noreferrer"'}>${escapeHTML(text(link, "label"))} ↗</a>`)
+    .join("");
+  $("welcome-disclaimer").textContent = text(profile, "disclaimer");
   $("education-strip").setAttribute("aria-label", COPY[locale].education);
   $("education-strip").innerHTML = (profile.education || [])
     .map((education) => `<article><b>${escapeHTML(text(education, "degree"))}</b><span>${escapeHTML(text(education, "institution"))}</span><small>${escapeHTML(text(education, "period"))}</small></article>`)
@@ -52,41 +58,12 @@ function renderNavigation() {
   const categoryNav = $("category-nav");
   const mapSites = $("map-sites");
   const welcomeNav = $("welcome-nav");
-  for (const element of [campLabels, categoryNav, mapSites, welcomeNav]) element.replaceChildren();
+  for (const element of [campLabels, categoryNav, mapSites, welcomeNav, $("area-tabs")]) element.replaceChildren();
 
   categories.forEach((category, index) => {
-    //const name = text(category, "name");
-   const defaultName = text(category, "name");
+    const name = text(category, "name");
+    const short = text(category, "short");
 
-const themeNames = {
-  forest: {
-    zh: "洞察森林",
-    en: "Inside Forest",
-  },
-  desert: {
-    zh: "探索沙洲",
-    en: "Inside Sandbar",
-  },
-  ocean: {
-    zh: "探索浅海",
-    en: "Inside Shallow Sea",
-  },
-};
-
-    const languageKey = locale === "zh" ? "zh" : "en";
-    
-const name =
-  index === 0
-    ? themeNames[currentTheme]?.[locale] || defaultName
-    : defaultName;
-
-const short =
-  index === 0
-    ? name
-    : text(category, "short");
-
-
-    
     const label = document.createElement("button");
     label.className = "camp-label";
     label.dataset.camp = index;
@@ -105,6 +82,11 @@ const short =
     quick.innerHTML = `<span>${category.number}</span><b>${escapeHTML(name)}</b><i>↗</i>`;
     welcomeNav.append(quick);
 
+    const tab = document.createElement("button");
+    tab.dataset.camp = index;
+    tab.innerHTML = `<span>${category.number}</span>${escapeHTML(name)}`;
+    $("area-tabs").append(tab);
+
     const dot = document.createElement("button");
     dot.className = "map-site";
     dot.dataset.camp = index;
@@ -119,6 +101,11 @@ const short =
     button.classList.toggle("visited", visited.has(index));
     button.classList.toggle("active", index === active);
   });
+  const tabs = $("area-tabs");
+  const current = tabs.querySelector(".active");
+  if (current && tabs.scrollWidth > tabs.clientWidth) {
+    tabs.scrollTo({ left: current.offsetLeft - (tabs.clientWidth - current.offsetWidth) / 2, behavior: "smooth" });
+  }
 }
 
 function applyLocale() {
@@ -145,7 +132,7 @@ function applyLocale() {
   $("evidence-dialog").setAttribute("aria-label", copy.fullImage);
   $("close-evidence").setAttribute("aria-label", copy.closeImage);
   const primaryLink = profile.links?.[0];
-  $("channel").hidden = !primaryLink;
+  $("channel").hidden = true;
   if (primaryLink) $("channel").querySelector("span").textContent = text(primaryLink, "label");
 
   document.title = `${locale === "zh" ? profile.titleZh || profile.title : profile.title} · ${profile.name}`;
@@ -163,8 +150,18 @@ function applyLocale() {
     $("work-intro").textContent = text(category, "intro");
     $("work-description").textContent = text(category, "description");
     mountExhibit($("work-sections"), category.id, locale);
+    renderBanner(category);
   }
   setStatus(active >= 0 ? "arrived" : started ? "overview" : "idle", active);
+}
+
+function renderBanner(category) {
+  const art = $("panel-art")?.innerHTML || "";
+  const stats = (text(category, "metrics") || category.metrics || [])
+    .map((metric) => `<div><strong>${escapeHTML(metric.value)}</strong><span>${escapeHTML(text(metric, "label"))}</span></div>`)
+    .join("");
+  $("deep-banner").innerHTML = `<div class="banner-copy"><p class="banner-kicker"><span>${category.number}</span>${escapeHTML(text(category, "english"))}</p><h2>${escapeHTML(text(category, "name"))}</h2><p>${escapeHTML(text(category, "intro"))}</p></div>${stats ? `<div class="banner-stats">${stats}</div>` : ""}<svg class="banner-art" viewBox="0 0 240 120" fill="none" aria-hidden="true">${art}</svg>`;
+  $("work").dataset.area = category.id;
 }
 
 function toast(message) {
@@ -181,9 +178,20 @@ function begin() {
   setStatus("idle");
 }
 
+let ebbTimer;
 function closeWork() {
   active = -1;
-  $("work").hidden = true;
+  clearTimeout(ebbTimer);
+  const panel = $("work");
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  document.body.classList.remove("diving");
+  if (!panel.hidden && !reduce) {
+    panel.classList.add("ebbing");
+    ebbTimer = setTimeout(() => {
+      panel.hidden = true;
+      panel.classList.remove("ebbing");
+    }, 620);
+  } else panel.hidden = true;
   document.body.classList.remove("panel-open");
   document.querySelectorAll("#category-nav button").forEach((button) => button.classList.remove("active"));
 }
@@ -194,8 +202,10 @@ function openWork(index) {
   begin();
   active = index;
   visited.add(index);
+  clearTimeout(ebbTimer);
+  $("work").classList.remove("ebbing");
   $("work").hidden = false;
-  document.body.classList.add("panel-open");
+  document.body.classList.add("panel-open", "diving");
   $("panel-number").textContent = category.number;
   $("panel-english").textContent = text(category, "english");
   $("panel-category").textContent = `${COPY[locale].fieldNotes} / ${category.number}`;
@@ -203,6 +213,8 @@ function openWork(index) {
   $("work-intro").textContent = text(category, "intro");
   $("work-description").textContent = text(category, "description");
   mountExhibit($("work-sections"), category.id, locale);
+  renderBanner(category);
+  $("work").classList.remove("ebbing");
   $("work").scrollTop = 0;
   $("visited-count").textContent = String(visited.size).padStart(2, "0");
   renderNavigation();
@@ -211,6 +223,11 @@ function openWork(index) {
 
 function navigate(index) {
   if (!categories[index]) return;
+  if (document.body.classList.contains("diving")) {
+    island?.travelTo(index);
+    openWork(index);
+    return;
+  }
   begin();
   closeWork();
   if (webglFailed) {
@@ -218,8 +235,14 @@ function navigate(index) {
     return;
   }
   island?.travelTo(index);
-  setStatus("heading", index);
+  openWork(index);
 }
+
+window.addEventListener("portfolio:open", (event) => {
+  const index = Number(event.detail?.index);
+  if (!categories[index]) return;
+  openWork(index);
+});
 
 document.addEventListener("click", (event) => {
   const destination = event.target.closest("[data-camp]");
@@ -234,6 +257,33 @@ $("language-toggle").addEventListener("click", () => {
 
 $("explore").addEventListener("click", begin);
 $("close-work").addEventListener("click", closeWork);
+$("back-island").addEventListener("click", closeWork);
+let surfacePull = 0;
+$("work").addEventListener(
+  "wheel",
+  (event) => {
+    if ($("work").scrollTop > 0 || event.deltaY >= 0) {
+      surfacePull = 0;
+      return;
+    }
+    surfacePull += -event.deltaY;
+    if (surfacePull > 260) {
+      surfacePull = 0;
+      closeWork();
+    }
+  },
+  { passive: true },
+);
+let touchStartY = null;
+$("work").addEventListener("touchstart", (event) => (touchStartY = $("work").scrollTop <= 0 ? event.touches[0].clientY : null), { passive: true });
+$("work").addEventListener(
+  "touchend",
+  (event) => {
+    if (touchStartY !== null && event.changedTouches[0].clientY - touchStartY > 120) closeWork();
+    touchStartY = null;
+  },
+  { passive: true },
+);
 $("continue").addEventListener("click", closeWork);
 $("overview").addEventListener("click", () => {
   closeWork();
@@ -328,12 +378,17 @@ try {
       $("loading").classList.add("loaded");
       setTimeout(() => ($("loading").hidden = true), 800);
     },
-    onArrive: openWork,
+    onArrive: (index) => {
+      if (document.body.classList.contains("diving") && index === active) return;
+      openWork(index);
+    },
     onLeave: () => {
+      if (document.body.classList.contains("diving")) return;
       if (active >= 0) closeWork();
     },
     onMove: () => {
       begin();
+      if (document.body.classList.contains("diving")) return;
       closeWork();
     },
     onBoundary: () => toast(COPY[locale].boundary),

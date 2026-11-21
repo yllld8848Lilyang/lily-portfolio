@@ -27,3 +27,11 @@ test('Empty sections require explicit confirmation and retain all four scene slo
  assert.deepEqual(categories.map(m=>m.number),['01','02','03','04']);
  assert.ok(categories.every(m=>m.items.length===0));
 });
+
+test('Media outside /assets/ and unknown statuses are rejected',()=>{
+ const d=structuredClone(data);
+ d.modules[0].items[0].media=[{type:'video',src:'https://evil.example/x.mp4'}];
+ assert.throws(()=>normalizePortfolio(d));
+ const e=structuredClone(data); e.modules[0].items[0].status='done';
+ assert.throws(()=>normalizePortfolio(e));
+});
